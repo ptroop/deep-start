@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-08-04 12:53 UTC",
+  "timestamp": "2026-08-04 13:31 UTC",
   "market_data": {
-    "US_10Y": 4.661,
+    "US_10Y": 4.659,
     "US_2Y": 3.735,
     "India_10Y": 0.0,
     "Nifty_50": 24614.9,
@@ -21,6 +21,6 @@
   "summaries": [
     "TechCorp acquires StartupX for $1.2B",
     "FinServe files for $500M IPO on NSE",
-    "M&A"
+    "TechCorp acquires StartupX for $1.2B"
   ]
 }
