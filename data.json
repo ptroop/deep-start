@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-04 12:48 UTC",
+  "timestamp": "2026-08-04 12:50 UTC",
   "market_data": {
     "US_10Y": 0.0,
     "US_2Y": 0.0,
@@ -19,8 +19,8 @@
     }
   ],
   "summaries": [
-    "Error generating summaries.",
-    "Details: 404 Client Error: Not Found for url: https://openrouter.ai/api/v1/chat/completions",
-    "Try again later."
+    "TechCorp acquires StartupX",
+    "Acquisition price: $1.2B",
+    "FinServe files for $500M IPO on NSE"
   ]
 }
