@@ -22,7 +22,7 @@ def get_summaries(news_items):
                 "Content-Type": "application/json"
             },
             json={
-                "model": "google/gemini-flash-1.5-8b",
+                "model": "google/gemini-1.5-flash",
                 "messages": [
                     {"role": "system", "content": "You are a financial analyst. Return only 3 bullet points starting with '-'"},
                     {"role": "user", "content": prompt}

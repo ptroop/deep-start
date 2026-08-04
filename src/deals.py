@@ -18,7 +18,7 @@ def get_recent_deals():
     
     try:
         # In production, we'd target a specific URL like a Reuters M&A page
-        result = app.scrape_url('https://example-financial-news.com/ma', params={'formats': ['markdown']})
+        result = app.scrape_url('https://techcrunch.com/category/mergers-acquisitions/', params={'formats': ['markdown']})
         markdown_content = result.get('markdown', '')
         # Here we would parse the markdown or pass it to OpenRouter
         return [
