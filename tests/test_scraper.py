@@ -27,3 +27,22 @@ def test_get_recent_deals(mocker):
     assert "type" in deals[0]
     assert deals[0]["type"] in ["M&A", "IPO"]
 
+from summarizer import get_summaries
+
+def test_get_summaries(mocker):
+    # Mock environment
+    mocker.patch.dict("os.environ", {"OPENROUTER_API_KEY": "test_key"})
+    
+    # Mock requests.post
+    mock_post = mocker.patch("requests.post")
+    mock_post.return_value.status_code = 200
+    mock_post.return_value.json.return_value = {
+        "choices": [{"message": {"content": "- Point 1.\n- Point 2.\n- Point 3."}}]
+    }
+    
+    summaries = get_summaries([{"title": "News 1"}, {"title": "News 2"}])
+    assert isinstance(summaries, list)
+    assert len(summaries) == 3
+    assert summaries[0] == "Point 1."
+
+
