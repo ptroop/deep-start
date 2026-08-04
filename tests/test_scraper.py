@@ -3,6 +3,7 @@ import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
 from market_data import get_market_data
 from deals import get_recent_deals
+from summarizer import get_summaries
 
 def test_get_market_data():
     data = get_market_data()
@@ -27,8 +28,6 @@ def test_get_recent_deals(mocker):
     assert "type" in deals[0]
     assert deals[0]["type"] in ["M&A", "IPO"]
 
-from summarizer import get_summaries
-
 def test_get_summaries(mocker):
     # Mock environment
     mocker.patch.dict("os.environ", {"OPENROUTER_API_KEY": "test_key"})
@@ -44,5 +43,21 @@ def test_get_summaries(mocker):
     assert isinstance(summaries, list)
     assert len(summaries) == 3
     assert summaries[0] == "Point 1."
+
+def test_get_summaries_missing_key(mocker):
+    mocker.patch.dict("os.environ", clear=True)
+    summaries = get_summaries([{"title": "News 1"}])
+    assert len(summaries) == 3
+    assert summaries[0] == "API Key missing."
+
+def test_get_summaries_api_error(mocker):
+    mocker.patch.dict("os.environ", {"OPENROUTER_API_KEY": "test_key"})
+    mock_post = mocker.patch("requests.post")
+    mock_post.side_effect = Exception("API down")
+    
+    summaries = get_summaries([{"title": "News 1"}])
+    assert len(summaries) == 3
+    assert summaries[0] == "Error generating summaries."
+
 
 

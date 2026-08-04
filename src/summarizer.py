@@ -9,7 +9,7 @@ def get_summaries(news_items):
     api_key = os.environ.get("OPENROUTER_API_KEY")
     if not api_key:
         logger.warning("OPENROUTER_API_KEY missing.")
-        return ["API Key missing. Cannot generate summaries."]
+        return ["API Key missing.", "Cannot generate summaries.", "Check environment variables."]
         
     prompt = "Summarize the following news into exactly 3 factual bullet points. EXTRACTIVE ONLY. NO GENERATIVE SLOP.\n\n"
     prompt += json.dumps(news_items)
@@ -33,8 +33,10 @@ def get_summaries(news_items):
         content = response.json()["choices"][0]["message"]["content"]
         
         # Parse bullet points
-        bullets = [line.strip("- ").strip() for line in content.split("\n") if line.strip().startswith("-")]
-        return bullets if bullets else [content]
+        bullets = [line.strip().lstrip("-").strip() for line in content.split("\n") if line.strip().startswith("-")]
+        if len(bullets) != 3:
+            return ["Summary generation format error.", "Output did not contain 3 bullets.", f"Raw: {content}"][:3]
+        return bullets
     except Exception as e:
         logger.exception(f"Summarization failed: {e}")
-        return ["Error generating summaries."]
+        return ["Error generating summaries.", f"Details: {e}", "Try again later."]
