@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Digest</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>MARKET DIGEST</h1>
+            <div id="timestamp" class="timestamp">Loading...</div>
+        </header>
+        
+        <div class="grid">
+            <section class="panel" id="market-data">
+                <h2>MARKET YIELDS & SECTORS</h2>
+                <div class="data-grid">
+                    <div class="metric">
+                        <span class="label">US 10Y</span>
+                        <span class="value" id="us-10y">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">India 10Y</span>
+                        <span class="value" id="india-10y">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Fed Cut Prob</span>
+                        <span class="value" id="fed-prob">--</span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="panel">
+                <h2>DEALS (M&A / IPO)</h2>
+                <ul id="deals-list" class="news-list"></ul>
+            </section>
+            
+            <section class="panel">
+                <h2>KEY DEVELOPMENTS</h2>
+                <ul id="summary-list" class="news-list"></ul>
+            </section>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
