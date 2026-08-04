@@ -22,7 +22,7 @@ def get_summaries(news_items):
                 "Content-Type": "application/json"
             },
             json={
-                "model": "anthropic/claude-3.5-sonnet",
+                "model": "anthropic/claude-sonnet-5",
                 "messages": [
                     {"role": "system", "content": "You are a financial analyst. Return only 3 bullet points starting with '-'"},
                     {"role": "user", "content": prompt}
