@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-04 11:18 UTC",
+  "timestamp": "2026-08-04 12:48 UTC",
   "market_data": {
     "US_10Y": 0.0,
     "US_2Y": 0.0,
@@ -20,7 +20,7 @@
   ],
   "summaries": [
     "Error generating summaries.",
-    "Details: 402 Client Error: Payment Required for url: https://openrouter.ai/api/v1/chat/completions",
+    "Details: 404 Client Error: Not Found for url: https://openrouter.ai/api/v1/chat/completions",
     "Try again later."
   ]
 }
