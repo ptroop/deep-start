@@ -38,7 +38,7 @@ async function loadData() {
             <div class="mck-statcard">
                 <div class="mck-statcard__stat">${formatVal(md.Brent_Crude, '$')}</div>
                 <div class="mck-statcard__caption">Brent Crude</div>
-                <div class="mck-statcard__body">Oil Benchmark (CAD Impact)</div>
+                <div class="mck-statcard__body">Oil Benchmark</div>
             </div>
             <div class="mck-statcard">
                 <div class="mck-statcard__stat">${formatVal(md.USD_INR, '₹')}</div>
@@ -94,31 +94,124 @@ async function loadData() {
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false }
-                    },
+                    plugins: { legend: { display: false } },
                     scales: {
-                        y: {
-                            beginAtZero: false,
-                            grid: { color: '#E6E6E6' }
-                        },
-                        x: {
-                            grid: { display: false }
-                        }
+                        y: { beginAtZero: false, grid: { color: '#E6E6E6' } },
+                        x: { grid: { display: false } }
                     }
                 }
             });
         }
 
-        // Render AI Newsletter Markdown
-        const newsletterMd = data.newsletter || "No newsletter data available.";
-        const html = marked.parse(newsletterMd);
-        document.getElementById('newsletter-content').innerHTML = html;
+        // --- Render JSON Sections ---
+        let newsData = {};
+        try {
+            newsData = typeof data.newsletter === 'string' ? JSON.parse(data.newsletter) : data.newsletter;
+        } catch (e) {
+            console.error("Failed to parse newsletter JSON", e);
+            newsData = {
+                key_insights: ["Failed to load AI insights. Format error."],
+                equities_text: "Error loading equities text.",
+                f_and_o_text: "Error loading F&O text.",
+                commodities_text: "Error loading commodities text.",
+                macro_text: "Error loading macro text.",
+                week_ahead: [],
+                earnings_calendar: []
+            };
+        }
+
+        // Narratives
+        document.getElementById('equities-narrative').innerHTML = newsData.equities_text || "";
+        document.getElementById('f-and-o-narrative').innerHTML = newsData.f_and_o_text || "";
+        document.getElementById('commodities-narrative').innerHTML = newsData.commodities_text || "";
+        document.getElementById('macro-narrative').innerHTML = newsData.macro_text || "";
+
+        // Key Insights
+        if (newsData.key_insights && newsData.key_insights.length > 0) {
+            const insightsHtml = `<ul>${newsData.key_insights.map(i => `<li>${i}</li>`).join('')}</ul>`;
+            document.getElementById('insights-content').innerHTML = insightsHtml;
+        }
+
+        // Helper to format table rows
+        const createRow = (name, price) => {
+            return `<tr><td>${name}</td><td>${formatVal(price)}</td></tr>`;
+        };
+
+        // Populate Tables
+        const benchTbody = document.querySelector('#benchmark-table tbody');
+        if (benchTbody) {
+            benchTbody.innerHTML = `
+                ${createRow('Nifty 50', md.Nifty_50)}
+                ${createRow('Sensex', md.Sensex)}
+                ${createRow('Nifty Bank', md.Nifty_Bank)}
+                ${createRow('Nifty Next 50', md.Nifty_Next_50)}
+                ${createRow('Nifty Midcap 50', md.Nifty_Midcap)}
+                ${createRow('Nifty Smallcap 250', md.Nifty_Smallcap)}
+            `;
+        }
+
+        const sectoralTbody = document.querySelector('#sectoral-table tbody');
+        if (sectoralTbody) {
+            sectoralTbody.innerHTML = `
+                ${createRow('Nifty Auto', md.Nifty_Auto)}
+                ${createRow('Nifty Energy', md.Nifty_Energy)}
+                ${createRow('Nifty FMCG', md.Nifty_FMCG)}
+                ${createRow('Nifty IT', md.Nifty_IT)}
+                ${createRow('Nifty Metal', md.Nifty_Metal)}
+                ${createRow('Nifty Pharma', md.Nifty_Pharma)}
+                ${createRow('Nifty Realty', md.Nifty_Realty)}
+            `;
+        }
+
+        const commTbody = document.querySelector('#commodities-table tbody');
+        if (commTbody) {
+            commTbody.innerHTML = `
+                ${createRow('Gold (per oz)', md.Gold)}
+                ${createRow('Silver', md.Silver)}
+                ${createRow('Copper', md.Copper)}
+                ${createRow('Crude Oil', md.Crude_Oil)}
+                ${createRow('Natural Gas', md.Natural_Gas)}
+                ${createRow('USD/INR', md.USD_INR)}
+            `;
+        }
         
+        // Events Tables
+        const weekTbody = document.querySelector('#week-ahead-table tbody');
+        if (weekTbody && newsData.week_ahead) {
+            weekTbody.innerHTML = newsData.week_ahead.map(evt => 
+                `<tr><td>${evt.date}</td><td>${evt.event}</td></tr>`
+            ).join('');
+        }
+
+        const earningsTbody = document.querySelector('#earnings-table tbody');
+        if (earningsTbody && newsData.earnings_calendar) {
+            earningsTbody.innerHTML = newsData.earnings_calendar.map(evt => 
+                `<tr><td>${evt.date}</td><td>${evt.event}</td></tr>`
+            ).join('');
+        }
+
+        // Drawer Event Listeners
+        const openBtn = document.getElementById('open-insights');
+        const closeBtn = document.getElementById('close-insights');
+        const drawer = document.getElementById('insights-drawer');
+        const overlay = document.getElementById('insights-overlay');
+
+        if(openBtn && closeBtn && drawer && overlay) {
+            openBtn.addEventListener('click', () => {
+                drawer.setAttribute('aria-hidden', 'false');
+                overlay.setAttribute('aria-hidden', 'false');
+            });
+            const closeDrawer = () => {
+                drawer.setAttribute('aria-hidden', 'true');
+                overlay.setAttribute('aria-hidden', 'true');
+            };
+            closeBtn.addEventListener('click', closeDrawer);
+            overlay.addEventListener('click', closeDrawer);
+        }
+
     } catch (error) {
         console.error("Error loading data:", error);
         document.getElementById('hero-headline').textContent = "ERROR LOADING DATA. PLEASE CHECK BACK LATER.";
-        document.getElementById('newsletter-content').innerHTML = "<p>Failed to load the daily digest.</p>";
     }
 }
 

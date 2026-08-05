@@ -24,15 +24,29 @@
         </div>
     </div>
 
+    <!-- Key Insights Drawer -->
+    <div class="mck-drawer-overlay" id="insights-overlay" aria-hidden="true"></div>
+    <div class="mck-drawer" id="insights-drawer" aria-hidden="true">
+        <div class="mck-drawer__header">
+            <h2 class="mck-drawer__title">Key Insights</h2>
+            <button class="mck-drawer__close" id="close-insights" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+            </button>
+        </div>
+        <div class="mck-drawer__body" id="insights-content">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+
     <main style="margin-top: 60px;">
         <!-- Hero Section -->
         <div class="mck-hero">
-            <!-- Optional hero image can go here -->
             <div class="mck-hero__scrim" aria-hidden="true"></div>
             <div class="mck-hero__overlay">
                 <div class="mck-hero__inner">
                     <h1 class="mck-hero__title">Deep Start</h1>
                     <p class="mck-hero__headline" id="hero-headline">Fetching latest financial news...</p>
+                    <button class="mck-hero__cta" id="open-insights" style="margin-top: 24px; padding: 12px 24px; background: #051c2c; color: white; border: none; font-family: var(--font-sans); font-weight: 500; cursor: pointer; border-radius: 4px;">Read Key Insights</button>
                 </div>
             </div>
         </div>
@@ -41,7 +55,7 @@
         <div class="mck-byline-rule">
             <div class="mck-byline-rule__inner">
                 <div class="mck-byline-rule__meta">
-                    <div class="mck-byline-rule__by">By <strong>AI Financial Analyst</strong></div>
+                    <div class="mck-byline-rule__by">By <strong>AI Financial Editor</strong></div>
                     <div class="mck-byline-rule__sub" id="timestamp-byline">--</div>
                 </div>
             </div>
@@ -49,7 +63,7 @@
 
         <!-- Main Article Container -->
         <article class="mck-article">
-            <!-- Market Snapshot Section (Will be populated by JS) -->
+            <!-- Market Snapshot Section -->
             <section id="snapshot">
                 <h2>Market snapshot</h2>
                 <div class="mck-statcards" data-count="3" id="market-statcards">
@@ -63,10 +77,101 @@
                 </div>
             </section>
             
-            <!-- AI Newsletter Section (Will be populated by JS) -->
-            <div id="newsletter-content" style="margin-top: 48px;">
-                <p class="lead">Loading daily newsletter...</p>
-            </div>
+            <section id="equities">
+                <h2>Equities and sectors</h2>
+                <div id="equities-narrative" class="mck-narrative">Loading equities news...</div>
+                
+                <figure class="mck-exhibit">
+                    <div class="mck-exhibit__head">
+                        <div class="mck-exhibit__title">Benchmark Indices</div>
+                    </div>
+                    <div class="mck-exhibit__body">
+                        <div class="mck-table-wrap">
+                            <table class="mck-table" id="benchmark-table">
+                                <thead><tr><th>Index</th><th>Price</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </figure>
+                
+                <figure class="mck-exhibit">
+                    <div class="mck-exhibit__head">
+                        <div class="mck-exhibit__title">Sectoral Indices</div>
+                    </div>
+                    <div class="mck-exhibit__body">
+                        <div class="mck-table-wrap">
+                            <table class="mck-table" id="sectoral-table">
+                                <thead><tr><th>Index</th><th>Price</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </figure>
+            </section>
+
+            <section id="f-and-o">
+                <h2>Winners and losers</h2>
+                <div id="f-and-o-narrative" class="mck-narrative">Loading F&O news...</div>
+            </section>
+
+            <section id="commodities">
+                <h2>Commodities and currency</h2>
+                <div id="commodities-narrative" class="mck-narrative">Loading commodities news...</div>
+                <figure class="mck-exhibit">
+                    <div class="mck-exhibit__head">
+                        <div class="mck-exhibit__title">MCX futures and Forex</div>
+                    </div>
+                    <div class="mck-exhibit__body">
+                        <div class="mck-table-wrap">
+                            <table class="mck-table" id="commodities-table">
+                                <thead><tr><th>Asset</th><th>Price</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </figure>
+            </section>
+
+            <section id="macro">
+                <h2>Macro context</h2>
+                <div id="macro-narrative" class="mck-narrative">Loading macro news...</div>
+            </section>
+            
+            <section id="events">
+                <h2>Upcoming events</h2>
+                
+                <h3>The week ahead</h3>
+                <figure class="mck-exhibit">
+                    <div class="mck-exhibit__head">
+                        <div class="mck-exhibit__title">Key events for the week ahead</div>
+                    </div>
+                    <div class="mck-exhibit__body">
+                        <div class="mck-table-wrap">
+                            <table class="mck-table" id="week-ahead-table">
+                                <thead><tr><th>Date</th><th>Event</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </figure>
+
+                <h3>Earnings calendar</h3>
+                <figure class="mck-exhibit">
+                    <div class="mck-exhibit__head">
+                        <div class="mck-exhibit__title">Companies scheduled to report results</div>
+                    </div>
+                    <div class="mck-exhibit__body">
+                        <div class="mck-table-wrap">
+                            <table class="mck-table" id="earnings-table">
+                                <thead><tr><th>Date</th><th>Event</th></tr></thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </figure>
+            </section>
+
         </article>
     </main>
     <script src="app.js"></script>
