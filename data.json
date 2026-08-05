@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-05 19:28 UTC",
+  "timestamp": "2026-08-05 19:42 UTC",
   "market_data": {
     "US_10Y": 4.617,
     "US_2Y": 3.725,
@@ -7,16 +7,16 @@
     "Nifty_50": 24624.65,
     "Nifty_Bank": 57739.95,
     "Sensex": 78581.0,
-    "Brent_Crude": 79.48,
-    "Gold": 4315.9,
-    "Silver": 62.435,
-    "Copper": 6.7595,
+    "Brent_Crude": 79.5,
+    "Gold": 4310.8,
+    "Silver": 62.28,
+    "Copper": 6.745,
     "USD_INR": 95.11,
-    "VIX": 15.53,
-    "DXY": 99.707,
-    "Gold_INR_10g": 131974.07210759152,
-    "Gold_INR_1g": 13197.407210759153,
+    "VIX": 15.5,
+    "DXY": 99.717,
+    "Gold_INR_10g": 131818.12137477827,
+    "Gold_INR_1g": 13181.812137477827,
     "Fed_Rate_Cut_Prob": "65.5% (Sept 2026)"
   },
-  "newsletter": "## Key Insights\n- The Nifty 50 and Sensex demonstrated large-cap resilience, closing at 24,624.65 and 78,581 respectively, while Gold's dual pricing at $43,204 and ₹132,111/10g signals continued safe-haven demand.\n- BofA's $250M/yr GLP-1 spend highlights emerging healthcare cost pressures for corporations.\n- Political stability risks may rise following expunged BJP remarks and ongoing J&K statehood demands.\n\n## Market Movers\n- Nifty 50 and Sensex: Resilience in large caps.\n- Gold: Safe-haven demand indicated by strong pricing.\n- DXY: Dollar strength at 99.676 pressuring import-dependent economies.\n\n## Macro Context\n- The US 10Y at 4.615% versus the 2Y at 3.728% indicates yield curve flattening, while the Fed's 65.5% probability of September 2026 rate cuts signals a dovish terminal rate outlook."
+  "newsletter": "## Key Insights\n* SpaceX shares fell 13% to $109.21 and AMD shares declined 6% as investors prioritized AI expenditure and revenue forecasts over earnings results.\n* PB Fintech reported a 92% increase in Q1FY27 net profit to ₹163 crore alongside a 40% rise in revenue, while Shopify shares increased 18% following an e-commerce revenue beat.\n* Gold prices rose to $4,325 and Silver reached $63 as diplomatic negotiations involving Iran impacted market sentiment.\n* The Reserve Bank of India planned a new framework to standardize interest rate rules for regulated entities to increase transparency across lending.\n* DLF targeted a ₹1 lakh crore sales pipeline over 5 years, while Sterlite Technologies secured a $210 million international order for optical fibre cables.\n\n## Market Movers\n* Nifty 50: 24,624.65\n* Nifty Bank: 57,739.95\n* Sensex: 78,581.0\n* Brent Crude: $79.5\n* Gold: $4,310.8\n* Silver: $62.28\n* Copper: $6.745\n* DXY: 99.717\n* VIX: 15.5\n\n## Macro Context\n* US Treasury maintained steady coupon auction sizes to manage yield expectations.\n* US employment data showed 44,000 jobs added in July.\n* The Reserve Bank of India maintained current rates while raising the FY27 GDP outlook and lowering inflation forecasts.\n* The US Federal Reserve maintains a 65.5% probability of a rate cut for September 2026."
 }
