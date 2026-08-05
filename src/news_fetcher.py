@@ -7,7 +7,7 @@ logger = logging.getLogger(__name__)
 def get_financial_news():
     """Fetches recent financial news from public RSS feeds."""
     feeds = [
-        "https://www.livemint.com/rss/markets",
+        "https://www.moneycontrol.com/rss/business.xml", # India Business News
         "https://economictimes.indiatimes.com/news/economy/policy/rssfeeds/1715249553.cms",
         "https://www.cnbc.com/id/10000664/device/rss/rss.html", # CNBC Finance / M&A
         "https://www.cnbc.com/id/10001147/device/rss/rss.html"  # CNBC Economy

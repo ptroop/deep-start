@@ -46,9 +46,9 @@ async function loadData() {
                 <div class="mck-statcard__body">FX Rate</div>
             </div>
             <div class="mck-statcard">
-                <div class="mck-statcard__stat">${formatVal(md.Gold, '$')}</div>
-                <div class="mck-statcard__caption">Gold / oz</div>
-                <div class="mck-statcard__body">Safe-Haven Asset</div>
+                <div class="mck-statcard__stat">${formatVal(md.Gold_INR_10g, '₹')}</div>
+                <div class="mck-statcard__caption">Gold / 10g</div>
+                <div class="mck-statcard__body">Safe-Haven (INR)</div>
             </div>
             <div class="mck-statcard">
                 <div class="mck-statcard__stat">${formatVal(md.VIX)}</div>

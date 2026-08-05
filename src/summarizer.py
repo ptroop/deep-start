@@ -31,7 +31,7 @@ def get_summaries(news_items, market_data=None):
                 "Content-Type": "application/json"
             },
             json={
-                "model": "nvidia/llama-3.1-nemotron-70b-instruct:free",
+                "model": "openrouter/free",
                 "messages": [
                     {"role": "system", "content": "You are a concise, ultra-professional financial analyst. Output only the requested sections and bullets. No pleasantries."},
                     {"role": "user", "content": prompt}
