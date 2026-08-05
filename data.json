@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-05 19:02 UTC",
+  "timestamp": "2026-08-05 19:04 UTC",
   "market_data": {
     "US_10Y": 4.615,
     "US_2Y": 3.73,
@@ -7,11 +7,11 @@
     "Nifty_50": 24624.65,
     "Nifty_Bank": 57739.95,
     "Sensex": 78581.0,
-    "Brent_Crude": 79.34,
-    "Gold": 4321.5,
+    "Brent_Crude": 79.32,
+    "Gold": 4322.8,
     "USD_INR": 95.11,
-    "VIX": 15.61,
-    "DXY": 99.674,
+    "VIX": 15.59,
+    "DXY": 99.671,
     "Fed_Rate_Cut_Prob": "65.5% (Sept 2026)"
   },
   "newsletter": "## Error generating newsletter\n\nDetails: 404 Client Error: Not Found for url: https://openrouter.ai/api/v1/chat/completions\n\nTry again later."
