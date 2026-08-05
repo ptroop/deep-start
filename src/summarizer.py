@@ -2,6 +2,7 @@ import os
 import requests
 import json
 import logging
+import re
 
 logger = logging.getLogger(__name__)
 
@@ -66,15 +67,14 @@ News Items: {json.dumps(news_items)}
         )
         response.raise_for_status()
         content = response.json()["choices"][0]["message"]["content"]
-        # Strip markdown formatting if present
-        if content.startswith("```json"):
-            content = content[7:]
-        if content.startswith("```"):
-            content = content[3:]
-        if content.endswith("```"):
-            content = content[:-3]
-        content = content.strip()
         
+        # Robustly extract JSON using regex in case of preamble/postamble
+        match = re.search(r'\{.*\}', content, re.DOTALL)
+        if match:
+            content = match.group(0)
+        else:
+            raise ValueError("No JSON object found in response.")
+            
         # Ensure it's parsable JSON
         json.loads(content)
         return content

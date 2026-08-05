@@ -6,7 +6,7 @@ def get_market_data():
         'US_2Y': '^IRX',
         'India_10Y': '^IN10YT=RR',
         'Nifty_50': '^NSEI',
-        'Nifty_Next_50': '^NN50',
+        'Nifty_Next_50': '^NSMIDCP',
         'Nifty_Midcap': '^NSEMDCP50',
         'Nifty_Smallcap': '^CNXSC',
         'Nifty_Bank': '^NSEBANK',
