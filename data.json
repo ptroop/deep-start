@@ -1,19 +1,22 @@
 {
-  "timestamp": "2026-08-05 19:10 UTC",
+  "timestamp": "2026-08-05 19:28 UTC",
   "market_data": {
-    "US_10Y": 4.615,
-    "US_2Y": 3.728,
+    "US_10Y": 4.617,
+    "US_2Y": 3.725,
     "India_10Y": 0.0,
     "Nifty_50": 24624.65,
     "Nifty_Bank": 57739.95,
     "Sensex": 78581.0,
-    "Brent_Crude": 79.56,
-    "Gold": 4320.4,
+    "Brent_Crude": 79.48,
+    "Gold": 4315.9,
+    "Silver": 62.435,
+    "Copper": 6.7595,
     "USD_INR": 95.11,
-    "VIX": 15.57,
-    "DXY": 99.676,
-    "Gold_INR_10g": 132111.6756953679,
+    "VIX": 15.53,
+    "DXY": 99.707,
+    "Gold_INR_10g": 131974.07210759152,
+    "Gold_INR_1g": 13197.407210759153,
     "Fed_Rate_Cut_Prob": "65.5% (Sept 2026)"
   },
-  "newsletter": "\n\n**Executive Macro**  \n- US 10Y at 4.615% vs 2Y at 3.728%, indicating yield curve flattening.  \n- Fed’s 65.5% probability of Sept 2026 rate cuts signals dovish terminal rate outlook.  \n- DXY at 99.676 reflects dollar strength amid geopolitical tensions.  \n\n**Regulatory/M&A**  \n- Expunged BJP remarks may heighten political risk in legislative stability.  \n- J&K statehood demands could disrupt investment certainty in regional markets.  \n- Congress cabinet discontent may delay policy reforms impacting fiscal outlook.  \n\n**Equities**  \n- Nifty 50 at 24,624.65 and Sensex at 78,581 show large-cap resilience.  \n- Gold at $43,204 and Gold_INR ₹132,111/10g signals safe-haven demand.  \n- BofA’s $250M/yr GLP-1 spend highlights healthcare cost pressures.  \n\n**Global/Yields**  \n- US-India 10Y spread at 4.615% (US) vs 0.0% (India) implies capital outflow risks.  \n- DXY at 99.676 pressures import-dependent economies.  \n- Gold’s dual pricing ($43,204 vs ₹132,111/10g) reflects currency-hedging trends.\n"
+  "newsletter": "## Key Insights\n- The Nifty 50 and Sensex demonstrated large-cap resilience, closing at 24,624.65 and 78,581 respectively, while Gold's dual pricing at $43,204 and ₹132,111/10g signals continued safe-haven demand.\n- BofA's $250M/yr GLP-1 spend highlights emerging healthcare cost pressures for corporations.\n- Political stability risks may rise following expunged BJP remarks and ongoing J&K statehood demands.\n\n## Market Movers\n- Nifty 50 and Sensex: Resilience in large caps.\n- Gold: Safe-haven demand indicated by strong pricing.\n- DXY: Dollar strength at 99.676 pressuring import-dependent economies.\n\n## Macro Context\n- The US 10Y at 4.615% versus the 2Y at 3.728% indicates yield curve flattening, while the Fed's 65.5% probability of September 2026 rate cuts signals a dovish terminal rate outlook."
 }
