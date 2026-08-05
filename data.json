@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-08-05 20:41 UTC",
+  "timestamp": "2026-08-05 21:06 UTC",
   "market_data": {
     "US_10Y": 4.617,
     "US_2Y": 3.725,
@@ -17,18 +17,18 @@
     "Nifty_Pharma": 26563.55,
     "Nifty_Realty": 898.7,
     "Sensex": 78581.0,
-    "Brent_Crude": 79.38,
-    "Crude_Oil": 75.07,
-    "Natural_Gas": 2.673,
-    "Gold": 4306.9,
-    "Silver": 62.19,
-    "Copper": 6.74,
+    "Brent_Crude": 79.36,
+    "Crude_Oil": 75.05,
+    "Natural_Gas": 2.671,
+    "Gold": 4305.5,
+    "Silver": 62.21,
+    "Copper": 6.7475,
     "USD_INR": 95.107,
     "VIX": 15.81,
-    "DXY": 99.698,
-    "Gold_INR_10g": 131694.7108305268,
-    "Gold_INR_1g": 13169.47108305268,
+    "DXY": 99.697,
+    "Gold_INR_10g": 131651.9021757722,
+    "Gold_INR_1g": 13165.190217577221,
     "Fed_Rate_Cut_Prob": "65.5% (Sept 2026)"
   },
-  "newsletter": "{\"key_insights\": [\"Error generating newsletter: 404 Client Error: Not Found for url: https://openrouter.ai/api/v1/chat/completions\"], \"equities_text\": \"<p>Error.</p>\", \"f_and_o_text\": \"<p>Error.</p>\", \"commodities_text\": \"<p>Error.</p>\", \"macro_text\": \"<p>Error.</p>\", \"week_ahead\": [], \"earnings_calendar\": []}"
+  "newsletter": "{\"key_insights\": [\"Construction began on South India's first semiconductor packaging facility in Visakhapatnam, alongside a \\u20b95,648 crore greenfield airport project.\", \"Indian equity benchmarks traded range-bound as market participants digested mixed Q1 corporate earnings.\", \"Global crude oil prices stabilized near $79/bbl amidst ongoing geopolitical tensions in the Middle East.\"], \"equities_text\": \"<p>Indian equity indices traded in a narrow range as benchmark Nifty 50 held key support levels. Sectoral performance remained mixed with IT and Metals finding buying interest while Banking and Auto stocks faced selective profit booking.</p>\", \"f_and_o_text\": \"<p>In the derivatives segment, stock futures exhibited sector-specific momentum. Top gainers included select technology and pharmaceutical counters, while auto and real estate stocks experienced short buildup.</p>\", \"commodities_text\": \"<p>Commodity markets saw Brent crude oil holding steady around $79 per barrel. MCX Gold futures consolidated near record high levels while Silver futures retraced slightly.</p>\", \"macro_text\": \"<p>On the macroeconomic front, market participants await the upcoming RBI Monetary Policy Committee meeting outcome. Yields on the US 10-Year Treasury note hovered around 4.61%.</p>\", \"week_ahead\": [{\"date\": \"August 6 - 8\", \"event\": \"RBI Monetary Policy Committee (MPC) Rate Decision & Policy Stance\"}, {\"date\": \"August 12\", \"event\": \"India Industrial Production (IIP) & Consumer Inflation (CPI) Release\"}, {\"date\": \"August 14\", \"event\": \"WPI Inflation Data & India Balance of Trade Release\"}], \"earnings_calendar\": [{\"date\": \"August 6\", \"event\": \"Q1 Earnings: Bharti Airtel, Lupin, Eicher Motors, Cummins India\"}, {\"date\": \"August 7\", \"event\": \"Q1 Earnings: SBI, Tata Motors, Trent, Apollo Hospitals\"}, {\"date\": \"August 8\", \"event\": \"Q1 Earnings: Hindalco Industries, Grasim, Hero MotoCorp\"}]}"
 }
