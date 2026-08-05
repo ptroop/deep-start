@@ -39,7 +39,7 @@ def run():
 
     # Step 3: Newsletter Generation
     logger.info("Generating newsletter for %d items...", len(news_items))
-    newsletter_md = get_summaries(news_items)
+    newsletter_md = get_summaries(news_items, market_data)
     logger.info("Generated newsletter.")
 
     # Step 4: Assemble payload

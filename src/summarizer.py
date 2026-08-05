@@ -5,21 +5,27 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-def get_summaries(news_items):
+def get_summaries(news_items, market_data=None):
     api_key = os.environ.get("OPENROUTER_API_KEY")
     if not api_key:
         logger.warning("OPENROUTER_API_KEY missing.")
         return "## API Key missing\nCannot generate newsletter. Please check environment variables."
         
     prompt = (
-        "Act as a professional financial journalist. Synthesize the following news items into a dense, premium "
-        "daily financial newsletter. Use Markdown formatting. Include specific sections like 'Market Overview', "
-        "'Equities & Sectors', 'Macro & Policy', and 'Global Markets'. Use bolding for key entities and numbers. "
-        "Make it engaging and highly readable.\n\n"
-        "CRITICAL INSTRUCTION: You must be strictly factual. Base your entire newsletter ONLY on the provided news items. "
-        "DO NOT hallucinate, invent, or assume any facts, numbers, or events that are not explicitly present in the data. "
-        "EXTRACTIVE AND FACTUAL SYNTHESIS ONLY.\n\n"
-        f"{json.dumps(news_items)}"
+        "You are an elite Senior Financial Analyst and Editor-in-Chief writing a daily morning intelligence briefing "
+        "tailored for MBA Finance students and Investment Banking professionals.\n\n"
+        "Your briefing must be deeply analytical, rigorous, and 100% factual.\n\n"
+        "Structure the newsletter into 4 clear sections using Markdown:\n"
+        "1. **Executive Macro Briefing**: High-level synthesis connecting market movements with monetary policy and macro indicators.\n"
+        "2. **Regulatory & Legislative Amendments**: Key updates on tax, banking, RBI, SEBI, or government policy (e.g. recent bills, tax changes, FII rules).\n"
+        "3. **Equities & Sector Analysis**: Sectoral movements, major corporate actions, and earnings trends.\n"
+        "4. **Global Markets & Commodities**: Crude oil, gold, yield curves, and foreign institutional flows.\n\n"
+        "CRITICAL FACTUALITY RULES:\n"
+        "- Base your analysis EXCLUSIVELY on the provided news items and market data below.\n"
+        "- Citations & Data: Cross-reference exact numbers (e.g. bond yields, index points, oil prices) directly in your narrative.\n"
+        "- ZERO HALLUCINATION, zero fluff, no generic filler words.\n\n"
+        f"MARKET DATA:\n{json.dumps(market_data or {})}\n\n"
+        f"NEWS & POLICY FEEDS:\n{json.dumps(news_items)}"
     )
     
     try:
@@ -32,7 +38,7 @@ def get_summaries(news_items):
             json={
                 "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
                 "messages": [
-                    {"role": "system", "content": "You are a top-tier financial journalist writing a daily newsletter. Your writing must be 100% factual and grounded solely in the provided data."},
+                    {"role": "system", "content": "You are a top-tier financial analyst writing a daily intelligence briefing. Your analysis must be 100% factual, highly rigorous, and grounded strictly in the provided data."},
                     {"role": "user", "content": prompt}
                 ]
             }

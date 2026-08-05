@@ -8,7 +8,9 @@ def get_financial_news():
     """Fetches recent financial news from public RSS feeds."""
     feeds = [
         "https://www.livemint.com/rss/markets",
-        "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms"
+        "https://www.livemint.com/rss/economy",
+        "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+        "https://economictimes.indiatimes.com/news/economy/policy/rssfeeds/1715249553.cms"
     ]
     
     news_items = []

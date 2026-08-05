@@ -186,8 +186,7 @@ img{max-width:100%;height:auto;display:block}
 .mck-table td .neg{color:inherit;font-weight:400}
 
 /* ---------- Stat cards ---------- */
-.mck-statcards{display:grid;gap:20px;margin:36px 0}
-.mck-statcards[data-count="3"]{grid-template-columns:repeat(3,1fr)}
+.mck-statcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin:36px 0}
 .mck-statcard{position:relative;background:var(--mck-wash-blue);padding:28px 28px 26px;overflow:hidden}
 .mck-statcard__icon{position:absolute;top:22px;right:22px;color:var(--mck-chart-accent)}
 .mck-statcard__stat{font-family:var(--font-serif);font-variation-settings:"opsz" 40;font-weight:600;font-size:40px;line-height:44px;letter-spacing:-.01em;color:var(--mck-chart-accent)}

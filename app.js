@@ -9,35 +9,52 @@ async function loadData() {
         document.getElementById('timestamp-sticky').textContent = timestamp;
         document.getElementById('timestamp-byline').textContent = timestamp;
         
-        // Headline
-        if (data.market_data && data.market_data.Nifty_50) {
-            document.getElementById('hero-headline').textContent = `The Nifty 50 traded at ${data.market_data.Nifty_50.toFixed(2)} and the US 10Y Yield stood at ${typeof data.market_data.US_10Y === 'number' ? data.market_data.US_10Y.toFixed(2) : '--'}%.`;
+        // Hero Headline
+        const md = data.market_data || {};
+        if (md.Nifty_50) {
+            document.getElementById('hero-headline').textContent = 
+                `Nifty 50 at ${md.Nifty_50.toFixed(2)} | Sensex at ${md.Sensex ? md.Sensex.toFixed(2) : '--'} | Brent Crude $${md.Brent_Crude ? md.Brent_Crude.toFixed(2) : '--'} | US 10Y ${md.US_10Y ? md.US_10Y.toFixed(2) + '%' : '--'}`;
         }
 
-        // Market Statcards
-        const md = data.market_data || {};
+        // Expanded Market Statcards (Grid of 6 key indicators)
+        const formatVal = (val, prefix='', suffix='') => (typeof val === 'number' && val > 0) ? `${prefix}${val.toFixed(2)}${suffix}` : (typeof val === 'string' ? val : '--');
+        
         const statcardsHtml = `
             <div class="mck-statcard">
-                <div class="mck-statcard__stat">${typeof md.Nifty_50 === 'number' ? md.Nifty_50.toFixed(2) : '--'}</div>
+                <div class="mck-statcard__stat">${formatVal(md.Nifty_50)}</div>
                 <div class="mck-statcard__caption">Nifty 50</div>
                 <div class="mck-statcard__body">Indian Equity Benchmark</div>
             </div>
             <div class="mck-statcard">
-                <div class="mck-statcard__stat">${typeof md.US_10Y === 'number' ? md.US_10Y.toFixed(2) + '%' : '--'}</div>
-                <div class="mck-statcard__caption">US 10Y Yield</div>
-                <div class="mck-statcard__body">Global benchmark for risk-free rates</div>
+                <div class="mck-statcard__stat">${formatVal(md.Sensex)}</div>
+                <div class="mck-statcard__caption">BSE Sensex</div>
+                <div class="mck-statcard__body">30 Major Indian Corporates</div>
             </div>
             <div class="mck-statcard">
-                <div class="mck-statcard__stat">${md.Fed_Rate_Cut_Prob || '--'}</div>
-                <div class="mck-statcard__caption">Fed Cut Prob</div>
-                <div class="mck-statcard__body">Market expectations for next policy meeting</div>
+                <div class="mck-statcard__stat">${formatVal(md.US_10Y, '', '%')}</div>
+                <div class="mck-statcard__caption">US 10Y Yield</div>
+                <div class="mck-statcard__body">Global Risk-Free Rate</div>
+            </div>
+            <div class="mck-statcard">
+                <div class="mck-statcard__stat">${formatVal(md.Brent_Crude, '$')}</div>
+                <div class="mck-statcard__caption">Brent Crude</div>
+                <div class="mck-statcard__body">Oil Benchmark (CAD Impact)</div>
+            </div>
+            <div class="mck-statcard">
+                <div class="mck-statcard__stat">${formatVal(md.USD_INR, '₹')}</div>
+                <div class="mck-statcard__caption">USD / INR</div>
+                <div class="mck-statcard__body">FX Rate</div>
+            </div>
+            <div class="mck-statcard">
+                <div class="mck-statcard__stat">${formatVal(md.Gold, '$')}</div>
+                <div class="mck-statcard__caption">Gold / oz</div>
+                <div class="mck-statcard__body">Safe-Haven Asset</div>
             </div>
         `;
         document.getElementById('market-statcards').innerHTML = statcardsHtml;
 
         // Render AI Newsletter Markdown
         const newsletterMd = data.newsletter || "No newsletter data available.";
-        // Custom styling for markdown elements rendered inside our article
         const html = marked.parse(newsletterMd);
         document.getElementById('newsletter-content').innerHTML = html;
         

@@ -6,7 +6,11 @@ def get_market_data():
         'US_2Y': '^IRX',
         'India_10Y': '^IN10YT=RR',
         'Nifty_50': '^NSEI',
-        'Nifty_Bank': '^NSEBANK'
+        'Nifty_Bank': '^NSEBANK',
+        'Sensex': '^BSESN',
+        'Brent_Crude': 'BZ=F',
+        'Gold': 'GC=F',
+        'USD_INR': 'INR=X'
     }
     
     session = requests.Session()

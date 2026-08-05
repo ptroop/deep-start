@@ -1,6 +1,8 @@
 name: Financial Digest Scraper
 
 on:
+  push:
+    branches: [main]
   schedule:
     - cron: '0 1 * * 1-5'   # 1:00 AM UTC weekdays (~6:30 AM IST)
     - cron: '0 12 * * 1-5'  # 12:00 PM UTC weekdays (~5:30 PM IST)
