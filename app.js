@@ -50,8 +50,55 @@ async function loadData() {
                 <div class="mck-statcard__caption">Gold / oz</div>
                 <div class="mck-statcard__body">Safe-Haven Asset</div>
             </div>
+            <div class="mck-statcard">
+                <div class="mck-statcard__stat">${formatVal(md.VIX)}</div>
+                <div class="mck-statcard__caption">VIX</div>
+                <div class="mck-statcard__body">Volatility (Fear Index)</div>
+            </div>
+            <div class="mck-statcard">
+                <div class="mck-statcard__stat">${formatVal(md.DXY)}</div>
+                <div class="mck-statcard__caption">DXY</div>
+                <div class="mck-statcard__body">US Dollar Strength</div>
+            </div>
         `;
         document.getElementById('market-statcards').innerHTML = statcardsHtml;
+
+        // Render Yield Curve Chart
+        const chartCanvas = document.getElementById('yieldCurveChart');
+        if (chartCanvas) {
+            const ctx = chartCanvas.getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['2 Year', '10 Year'],
+                    datasets: [{
+                        label: 'US Treasury Yield (%)',
+                        data: [md.US_2Y || null, md.US_10Y || null],
+                        borderColor: '#051C2C',
+                        backgroundColor: '#051C2C',
+                        borderWidth: 2,
+                        tension: 0,
+                        pointRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: { color: '#E6E6E6' }
+                        },
+                        x: {
+                            grid: { display: false }
+                        }
+                    }
+                }
+            });
+        }
 
         // Render AI Newsletter Markdown
         const newsletterMd = data.newsletter || "No newsletter data available.";

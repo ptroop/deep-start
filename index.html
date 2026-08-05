@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- Sticky Bar -->
@@ -53,6 +54,12 @@
                 <h2>Market snapshot</h2>
                 <div class="mck-statcards" data-count="3" id="market-statcards">
                     <!-- Cards injected via JS -->
+                </div>
+                <div class="wsj-chart-container" style="margin-top: 32px; border-top: 1px solid var(--mck-rule); padding-top: 16px; max-width: 800px;">
+                    <h4 style="margin-top: 0;">Yield Curve Comparison</h4>
+                    <div style="height: 250px; width: 100%;">
+                        <canvas id="yieldCurveChart"></canvas>
+                    </div>
                 </div>
             </section>
             

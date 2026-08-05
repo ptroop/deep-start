@@ -12,20 +12,15 @@ def get_summaries(news_items, market_data=None):
         return "## API Key missing\nCannot generate newsletter. Please check environment variables."
         
     prompt = (
-        "You are an elite Senior Financial Analyst and Editor-in-Chief writing a daily morning intelligence briefing "
-        "tailored for MBA Finance students and Investment Banking professionals.\n\n"
-        "Your briefing must be deeply analytical, rigorous, and 100% factual.\n\n"
-        "Structure the newsletter into 4 clear sections using Markdown:\n"
-        "1. **Executive Macro Briefing**: High-level synthesis connecting market movements with monetary policy and macro indicators.\n"
-        "2. **Regulatory & Legislative Amendments**: Key updates on tax, banking, RBI, SEBI, or government policy (e.g. recent bills, tax changes, FII rules).\n"
-        "3. **Equities & Sector Analysis**: Sectoral movements, major corporate actions, and earnings trends.\n"
-        "4. **Global Markets & Commodities**: Crude oil, gold, yield curves, and foreign institutional flows.\n\n"
-        "CRITICAL FACTUALITY RULES:\n"
-        "- Base your analysis EXCLUSIVELY on the provided news items and market data below.\n"
-        "- Citations & Data: Cross-reference exact numbers (e.g. bond yields, index points, oil prices) directly in your narrative.\n"
-        "- ZERO HALLUCINATION, zero fluff, no generic filler words.\n\n"
+        "You are an elite Senior Financial Analyst. Write a strictly factual, zero-fluff daily morning intelligence briefing for MBA Finance professionals.\n\n"
+        "RULES (ZERO SLOP):\n"
+        "1. NO introductory or concluding sentences. Start immediately with the facts.\n"
+        "2. Use EXACTLY 4 sections (Executive Macro, Regulatory/M&A, Equities, Global/Yields).\n"
+        "3. Maximum 3 bullet points per section.\n"
+        "4. Maximum 2 short sentences per bullet point.\n"
+        "5. Base everything STRICTLY on the data provided below. Reference exact numbers.\n\n"
         f"MARKET DATA:\n{json.dumps(market_data or {})}\n\n"
-        f"NEWS & POLICY FEEDS:\n{json.dumps(news_items)}"
+        f"NEWS FEEDS:\n{json.dumps(news_items)}"
     )
     
     try:
@@ -36,9 +31,9 @@ def get_summaries(news_items, market_data=None):
                 "Content-Type": "application/json"
             },
             json={
-                "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+                "model": "meta-llama/llama-3.1-8b-instruct:free",
                 "messages": [
-                    {"role": "system", "content": "You are a top-tier financial analyst writing a daily intelligence briefing. Your analysis must be 100% factual, highly rigorous, and grounded strictly in the provided data."},
+                    {"role": "system", "content": "You are a concise, ultra-professional financial analyst. Output only the requested sections and bullets. No pleasantries."},
                     {"role": "user", "content": prompt}
                 ]
             }

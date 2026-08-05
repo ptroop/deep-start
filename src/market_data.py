@@ -10,7 +10,9 @@ def get_market_data():
         'Sensex': '^BSESN',
         'Brent_Crude': 'BZ=F',
         'Gold': 'GC=F',
-        'USD_INR': 'INR=X'
+        'USD_INR': 'INR=X',
+        'VIX': '^VIX',
+        'DXY': 'DX-Y.NYB'
     }
     
     session = requests.Session()
