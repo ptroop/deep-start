@@ -9,10 +9,18 @@ def get_summaries(news_items):
     api_key = os.environ.get("OPENROUTER_API_KEY")
     if not api_key:
         logger.warning("OPENROUTER_API_KEY missing.")
-        return ["API Key missing.", "Cannot generate summaries.", "Check environment variables."]
+        return "## API Key missing\nCannot generate newsletter. Please check environment variables."
         
-    prompt = "Summarize the following news into exactly 3 factual bullet points. EXTRACTIVE ONLY. NO GENERATIVE SLOP.\n\n"
-    prompt += json.dumps(news_items)
+    prompt = (
+        "Act as a professional financial journalist. Synthesize the following news items into a dense, premium "
+        "daily financial newsletter. Use Markdown formatting. Include specific sections like 'Market Overview', "
+        "'Equities & Sectors', 'Macro & Policy', and 'Global Markets'. Use bolding for key entities and numbers. "
+        "Make it engaging and highly readable.\n\n"
+        "CRITICAL INSTRUCTION: You must be strictly factual. Base your entire newsletter ONLY on the provided news items. "
+        "DO NOT hallucinate, invent, or assume any facts, numbers, or events that are not explicitly present in the data. "
+        "EXTRACTIVE AND FACTUAL SYNTHESIS ONLY.\n\n"
+        f"{json.dumps(news_items)}"
+    )
     
     try:
         response = requests.post(
@@ -22,21 +30,16 @@ def get_summaries(news_items):
                 "Content-Type": "application/json"
             },
             json={
-                "model": "nvidia/nemotron-3-super-120b-a12b:free",
+                "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
                 "messages": [
-                    {"role": "system", "content": "You are a financial analyst. Return only 3 bullet points starting with '-'"},
+                    {"role": "system", "content": "You are a top-tier financial journalist writing a daily newsletter. Your writing must be 100% factual and grounded solely in the provided data."},
                     {"role": "user", "content": prompt}
                 ]
             }
         )
         response.raise_for_status()
         content = response.json()["choices"][0]["message"]["content"]
-        
-        # Parse bullet points
-        bullets = [line.strip().lstrip("-").strip() for line in content.split("\n") if line.strip().startswith("-")]
-        if len(bullets) != 3:
-            return ["Summary generation format error.", "Output did not contain 3 bullets.", f"Raw: {content}"][:3]
-        return bullets
+        return content
     except Exception as e:
-        logger.exception(f"Summarization failed: {e}")
-        return ["Error generating summaries.", f"Details: {e}", "Try again later."]
+        logger.exception(f"Newsletter generation failed: {e}")
+        return f"## Error generating newsletter\n\nDetails: {e}\n\nTry again later."

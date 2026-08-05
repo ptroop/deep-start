@@ -3,46 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Start</title>
+    <title>Deep Start | Daily Digest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
 <body>
-    <div class="dashboard">
-        <header>
-            <h1>DEEP START</h1>
-            <div id="timestamp" class="timestamp">Loading...</div>
-        </header>
-        
-        <div class="grid">
-            <section class="panel" id="market-data">
-                <h2>MARKET YIELDS & SECTORS</h2>
-                <div class="data-grid">
-                    <div class="metric">
-                        <span class="label">US 10Y</span>
-                        <span class="value" id="us-10y">--</span>
-                    </div>
-                    <div class="metric">
-                        <span class="label">India 10Y</span>
-                        <span class="value" id="india-10y">--</span>
-                    </div>
-                    <div class="metric">
-                        <span class="label">Fed Cut Prob</span>
-                        <span class="value" id="fed-prob">--</span>
-                    </div>
+    <!-- Sticky Bar -->
+    <div class="mck-stickybar is-expanded" id="stickybar">
+        <div class="mck-stickybar__row">
+            <div class="mck-stickybar__title" id="sticky-title">Deep Start Daily Digest</div>
+            <div class="mck-actions mck-actions--compact">
+                <div class="mck-actions__row">
+                    <span id="timestamp-sticky" style="font-family: var(--font-sans); font-size: 13px; color: var(--mck-muted);">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main style="margin-top: 60px;">
+        <!-- Hero Section -->
+        <div class="mck-hero">
+            <!-- Optional hero image can go here -->
+            <div class="mck-hero__scrim" aria-hidden="true"></div>
+            <div class="mck-hero__overlay">
+                <div class="mck-hero__inner">
+                    <h1 class="mck-hero__title">Deep Start</h1>
+                    <p class="mck-hero__headline" id="hero-headline">Fetching latest financial news...</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Byline -->
+        <div class="mck-byline-rule">
+            <div class="mck-byline-rule__inner">
+                <div class="mck-byline-rule__meta">
+                    <div class="mck-byline-rule__by">By <strong>AI Financial Analyst</strong></div>
+                    <div class="mck-byline-rule__sub" id="timestamp-byline">--</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Article Container -->
+        <article class="mck-article">
+            <!-- Market Snapshot Section (Will be populated by JS) -->
+            <section id="snapshot">
+                <h2>Market snapshot</h2>
+                <div class="mck-statcards" data-count="3" id="market-statcards">
+                    <!-- Cards injected via JS -->
                 </div>
             </section>
             
-            <section class="panel">
-                <h2>DEALS (M&A / IPO)</h2>
-                <ul id="deals-list" class="news-list"></ul>
-            </section>
-            
-            <section class="panel">
-                <h2>KEY DEVELOPMENTS</h2>
-                <ul id="summary-list" class="news-list"></ul>
-            </section>
-        </div>
-    </div>
+            <!-- AI Newsletter Section (Will be populated by JS) -->
+            <div id="newsletter-content" style="margin-top: 48px;">
+                <p class="lead">Loading daily newsletter...</p>
+            </div>
+        </article>
+    </main>
     <script src="app.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 
 from market_data import get_market_data
-from deals import get_recent_deals
+from news_fetcher import get_financial_news
 from summarizer import get_summaries
 
 logging.basicConfig(
@@ -32,23 +32,21 @@ def run():
     market_data = get_market_data()
     logger.info("Market data: %s", market_data)
 
-    # Step 2: Deals
-    logger.info("Fetching recent deals...")
-    deals = get_recent_deals()
-    logger.info("Fetched %d deals.", len(deals))
+    # Step 2: News
+    logger.info("Fetching financial news...")
+    news_items = get_financial_news()
+    logger.info("Fetched %d news items.", len(news_items))
 
-    # Step 3: Summaries from top deals
-    news_items = deals[:5] if deals else [{"title": "No deals available today."}]
-    logger.info("Generating summaries for %d items...", len(news_items))
-    summaries = get_summaries(news_items)
-    logger.info("Generated %d summaries.", len(summaries))
+    # Step 3: Newsletter Generation
+    logger.info("Generating newsletter for %d items...", len(news_items))
+    newsletter_md = get_summaries(news_items)
+    logger.info("Generated newsletter.")
 
     # Step 4: Assemble payload
     payload = {
         "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
         "market_data": market_data,
-        "deals": deals,
-        "summaries": summaries,
+        "newsletter": newsletter_md,
     }
 
     # Step 5: Write data.json

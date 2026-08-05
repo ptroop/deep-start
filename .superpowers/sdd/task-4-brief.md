@@ -1,0 +1,157 @@
+### Task 4: Static Site Architecture (index.html, styles.css, app.js)
+
+**Files:**
+- Create: `index.html`
+- Create: `styles.css`
+- Create: `app.js`
+
+**Interfaces:**
+- Reads from `data.json` relative to the root.
+
+- [ ] **Step 1: Write `index.html`**
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Digest</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>MARKET DIGEST</h1>
+            <div id="timestamp" class="timestamp">Loading...</div>
+        </header>
+        
+        <div class="grid">
+            <section class="panel" id="market-data">
+                <h2>MARKET YIELDS & SECTORS</h2>
+                <div class="data-grid">
+                    <div class="metric">
+                        <span class="label">US 10Y</span>
+                        <span class="value" id="us-10y">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">India 10Y</span>
+                        <span class="value" id="india-10y">--</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Fed Cut Prob</span>
+                        <span class="value" id="fed-prob">--</span>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="panel">
+                <h2>DEALS (M&A / IPO)</h2>
+                <ul id="deals-list" class="news-list"></ul>
+            </section>
+            
+            <section class="panel">
+                <h2>KEY DEVELOPMENTS</h2>
+                <ul id="summary-list" class="news-list"></ul>
+            </section>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
+```
+
+- [ ] **Step 2: Write `styles.css`** (Bloomberg terminal style)
+```css
+body {
+    background-color: #000;
+    color: #ff9900;
+    font-family: monospace;
+    margin: 0;
+    padding: 20px;
+}
+
+.dashboard { max-width: 1200px; margin: 0 auto; }
+
+header {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: bottom;
+}
+
+h1 { margin: 0; color: #fff; font-size: 24px; }
+h2 { color: #fff; font-size: 16px; border-bottom: 1px solid #333; padding-bottom: 5px; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.panel {
+    border: 1px solid #333;
+    padding: 15px;
+    background-color: #0a0a0a;
+}
+
+.data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.metric { display: flex; flex-direction: column; }
+.label { color: #888; font-size: 12px; }
+.value { font-size: 20px; font-weight: bold; }
+
+.news-list { list-style-type: none; padding: 0; }
+.news-list li {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #333;
+    line-height: 1.4;
+}
+.news-list li:last-child { border-bottom: none; }
+```
+
+- [ ] **Step 3: Write `app.js`**
+```javascript
+async function loadData() {
+    try {
+        const response = await fetch('data.json');
+        const data = await response.json();
+        
+        document.getElementById('timestamp').textContent = `AS OF: ${data.timestamp}`;
+        
+        // Populate Market Data
+        document.getElementById('us-10y').textContent = data.market_data.US_10Y.toFixed(2) + '%';
+        document.getElementById('india-10y').textContent = data.market_data.India_10Y.toFixed(2) + '%';
+        document.getElementById('fed-prob').textContent = data.market_data.Fed_Rate_Cut_Prob;
+        
+        // Populate Deals
+        const dealsList = document.getElementById('deals-list');
+        data.deals.forEach(deal => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>[${deal.type}]</strong> ${deal.title}`;
+            dealsList.appendChild(li);
+        });
+        
+        // Populate Summaries
+        const summaryList = document.getElementById('summary-list');
+        data.summaries.forEach(summary => {
+            const li = document.createElement('li');
+            li.textContent = summary;
+            summaryList.appendChild(li);
+        });
+        
+    } catch (error) {
+        console.error("Error loading data:", error);
+        document.getElementById('timestamp').textContent = "ERROR LOADING DATA";
+    }
+}
+
+document.addEventListener('DOMContentLoaded', loadData);
+```
+
+- [ ] **Step 4: Commit**
+```bash
+git add index.html styles.css app.js
+git commit -m "feat: add frontend dashboard architecture"
+```
