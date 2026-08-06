@@ -176,32 +176,32 @@ async function loadData() {
         }
         
         // Events Tables
-        const defaultWeekAhead = [
-            {date: "August 6 - 8", event: "RBI Monetary Policy Committee (MPC) Rate Decision & Policy Stance"},
-            {date: "August 12", event: "India Industrial Production (IIP) & Consumer Inflation (CPI) Release"},
-            {date: "August 14", event: "WPI Inflation Data & India Balance of Trade Release"}
-        ];
-
-        const defaultEarnings = [
-            {date: "August 6", event: "Q1 Earnings: Bharti Airtel, Lupin, Eicher Motors, Cummins India"},
-            {date: "August 7", event: "Q1 Earnings: SBI, Tata Motors, Trent, Apollo Hospitals"},
-            {date: "August 8", event: "Q1 Earnings: Hindalco Industries, Grasim, Hero MotoCorp"}
-        ];
-
         const weekTbody = document.querySelector('#week-ahead-table tbody');
         if (weekTbody) {
-            const weekData = (newsData.week_ahead && newsData.week_ahead.length > 0) ? newsData.week_ahead : defaultWeekAhead;
-            weekTbody.innerHTML = weekData.map(evt => 
-                `<tr><td>${evt.date}</td><td>${evt.event}</td></tr>`
-            ).join('');
+            if (newsData.week_ahead && newsData.week_ahead.length > 0) {
+                weekTbody.innerHTML = newsData.week_ahead.map(evt => 
+                    `<tr><td>${evt.date}</td><td>${evt.event}</td></tr>`
+                ).join('');
+                const figure = weekTbody.closest('figure');
+                if (figure) figure.style.display = 'block';
+            } else {
+                const figure = weekTbody.closest('figure');
+                if (figure) figure.style.display = 'none';
+            }
         }
 
         const earningsTbody = document.querySelector('#earnings-table tbody');
         if (earningsTbody) {
-            const earningsData = (newsData.earnings_calendar && newsData.earnings_calendar.length > 0) ? newsData.earnings_calendar : defaultEarnings;
-            earningsTbody.innerHTML = earningsData.map(evt => 
-                `<tr><td>${evt.date}</td><td>${evt.event}</td></tr>`
-            ).join('');
+            if (newsData.earnings_calendar && newsData.earnings_calendar.length > 0) {
+                earningsTbody.innerHTML = newsData.earnings_calendar.map(evt => 
+                    `<tr><td>${evt.date}</td><td>${evt.event}</td></tr>`
+                ).join('');
+                const figure = earningsTbody.closest('figure');
+                if (figure) figure.style.display = 'block';
+            } else {
+                const figure = earningsTbody.closest('figure');
+                if (figure) figure.style.display = 'none';
+            }
         }
 
         // Drawer Event Listeners
