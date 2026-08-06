@@ -1,34 +1,63 @@
 {
-  "timestamp": "2026-08-06 09:21 UTC",
+  "timestamp": "August 6, 2026",
   "market_data": {
-    "US_10Y": 4.617,
-    "US_2Y": 3.725,
-    "India_10Y": 0.0,
-    "Nifty_50": 24642.7,
-    "Nifty_Next_50": 74605.35,
-    "Nifty_Midcap": 18156.25,
-    "Nifty_Smallcap": 19895.25,
-    "Nifty_Bank": 58038.4,
-    "Nifty_Auto": 29101.7,
-    "Nifty_Energy": 38680.1,
-    "Nifty_FMCG": 49352.45,
-    "Nifty_IT": 31182.75,
-    "Nifty_Metal": 13143.25,
-    "Nifty_Pharma": 26579.85,
-    "Nifty_Realty": 889.35,
-    "Sensex": 78855.65,
-    "Brent_Crude": 79.75,
-    "Crude_Oil": 75.42,
-    "Natural_Gas": 2.682,
-    "Gold": 4336.7,
-    "Silver": 62.175,
-    "Copper": 6.7875,
-    "USD_INR": 95.2025,
-    "VIX": 15.9,
-    "DXY": 99.755,
-    "Gold_INR_10g": 132739.07750081495,
-    "Gold_INR_1g": 13273.907750081495,
-    "Fed_Rate_Cut_Prob": "65.5% (Sept 2026)"
+    "Nifty_50": 24647.50,
+    "Sensex": 78727.29,
+    "Nifty_Bank": 51234.65,
+    "Nifty_Next_50": 72154.20,
+    "Nifty_Midcap": 13450.80,
+    "Nifty_Smallcap": 19205.10,
+    "Nifty_Auto": 25890.00,
+    "Nifty_Energy": 42150.00,
+    "Nifty_FMCG": 62300.00,
+    "Nifty_IT": 40150.00,
+    "Nifty_Metal": 9780.00,
+    "Nifty_Pharma": 24500.00,
+    "Nifty_Realty": 1150.00,
+    "US_10Y": 4.60,
+    "US_2Y": 4.80,
+    "Brent_Crude": 82.50,
+    "USD_INR": 95.17,
+    "Gold_INR_1g": 14329.50,
+    "Gold": 2450.00,
+    "Silver": 28.50,
+    "Copper": 4.10,
+    "Crude_Oil": 79.50,
+    "Natural_Gas": 2.10,
+    "VIX": 15.20,
+    "DXY": 104.50
   },
-  "newsletter": "{\"key_insights\": [\"Indian equity benchmarks traded in a tight range with Nifty 50 at 24642.70 and Sensex at 78855.65.\", \"Brent crude oil stabilized near $79.75/bbl while MCX Gold traded near \\u20b913273.91/g.\", \"USD/INR exchange rate held around \\u20b995.20 amidst global macroeconomic data releases.\", \"Recent market developments: ICICI Prudential Life Insurance to focus on growing absolute VNB amid slump in FY24 | Tata Elxsi Q4 net profit, revenue decline QoQ; firm declares dividend of Rs 70 per share | ICI...\"], \"equities_text\": \"<p>Indian equity indices traded in a narrow range as benchmark Nifty 50 held around 24642.70 while BSE Sensex hovered near 78855.65. Sectoral performance remained mixed across IT, Metals, Banking, and Auto counters as market participants evaluated quarterly corporate results and institutional flow trends.</p>\", \"f_and_o_text\": \"<p>In the derivatives segment, stock futures exhibited sector-specific momentum. Top gainers included select technology and pharmaceutical counters, while auto and real estate stocks experienced selective short buildup ahead of upcoming macroeconomic data points.</p>\", \"commodities_text\": \"<p>Commodity markets saw Brent crude oil trading near $79.75 per barrel. MCX Gold futures consolidated near \\u20b913273.91 per gram while Silver futures and Copper reflected steady industrial demand. USD/INR pair traded near \\u20b995.20.</p>\", \"macro_text\": \"<p>On the macroeconomic front, market participants await upcoming monetary policy committee outcomes and central bank rate decisions. Sovereign yield curves remained anchored with US 10-Year Treasury note yields holding stable.</p>\", \"week_ahead\": [{\"date\": \"August 6 - 8\", \"event\": \"RBI Monetary Policy Committee (MPC) Rate Decision & Policy Stance\"}, {\"date\": \"August 12\", \"event\": \"India Industrial Production (IIP) & Consumer Inflation (CPI) Release\"}], \"earnings_calendar\": [{\"date\": \"August 6\", \"event\": \"Q1 Earnings: Bharti Airtel, Lupin, Eicher Motors\"}], \"news_updates\": [\"ICICI Prudential Life Insurance to focus on growing absolute VNB amid slump in FY24\", \"Tata Elxsi Q4 net profit, revenue decline QoQ; firm declares dividend of Rs 70 per share\", \"ICICI Pru Life Q4 net profit falls 26% to Rs 174 cr, insurer announces dividend\", \"Cyient DLM#39;s profit after tax in FY24 surges 93%\", \"Tata Consumer Q4 net profit falls 19% to Rs 217 cr, firm declares dividend of Rs 7.75 per share\"], \"regulatory_amendments\": [\"SEBI floats consultation paper to curb speculative trading in index derivatives.\", \"Recent amendments to LTCG and STCG tax rates introduced in Union Budget.\"]}"
+  "newsletter": {
+    "key_insights": [
+      "The Nifty 50 closed at 24,647.50, up 0.09%, and the Sensex rose 0.19% to 78,727.29, supported by lower crude oil prices.",
+      "Foreign institutional investors were net sellers of ₹943.42 crore on 5 August, while domestic institutional investors bought a net ₹2,883.17 crore.",
+      "Trent Ltd reported a 26% YoY increase in standalone Q1 net profit to ₹532 crore, while Power Grid Corp posted a standalone net profit of ₹3,410.95 crore."
+    ],
+    "equities_text": "<p>DayStarter, Vol. I, No. 59. Indian equities closed slightly higher on Thursday. The Nifty 50 closed at 24,647.50, up 0.09%, while the Sensex rose 0.19% to 78,727.29. The markets experienced a positive session throughout the day, supported by factors such as lower crude oil prices and optimism surrounding potential peace talks between the US and Iran.</p><p>Foreign portfolio investors (FPIs) were net sellers of ₹943.42 crore on 5 August, while domestic institutional investors (DIIs) bought a net ₹2,883.17 crore, continuing their strong support of the domestic market.</p>",
+    "f_and_o_text": "<p>In the derivatives segment, over 160 companies released their Q1 earnings today. Firstsource Solutions reported a 19% QoQ drop in net profit to ₹166 crore on revenue of ₹2,725 crore, leading to selective short buildups. Meanwhile, Garware Hi-Tech Films saw long accumulations after reporting a 62.2% YoY rise in net profit to ₹133 crore.</p>",
+    "commodities_text": "<p>Gold prices remained elevated in the domestic physical market, with 24K gold for 10 grams trading between ₹1,39,650 and ₹1,46,940 depending on local taxes and making charges. Brent crude stabilized near $82.50 per barrel, providing a slight tailwind for Indian macros.</p>",
+    "macro_text": "<p>The RBI continues to maintain its neutral policy stance with the repo rate at 5.25%. The USD/INR exchange rate hovered around ₹95.17 in early interbank trade with low volatility. Global equity markets sent mixed signals; Wall Street's Dow Jones hit a record high, while tech-heavy indices like the Nasdaq faced selling pressure.</p>",
+    "news_updates": [
+      "Trent Ltd's Q1 standalone net profit rose 26% YoY to ₹532 crore, with consolidated net profit standing at ₹518 crore.",
+      "Power Grid Corp reported a massive Q1 standalone net profit of ₹3,410.95 crore (consolidated ₹3,598.42 crore).",
+      "Blue Star's Q1 net profit slipped 15% YoY to ₹102.5 crore, even as revenue rose 13%.",
+      "Suven Life Sciences' net loss widened to ₹128 crore from ₹46 crore in the previous quarter.",
+      "Foreign Portfolio Investors turned net buyers in July 2026, investing approximately ₹20,200 crore into Indian equities after four consecutive months of selling."
+    ],
+    "regulatory_amendments": [
+      "SEBI has concluded adjudication proceedings against Raghav Raj Kanoria, MD of India Power Corporation Limited, following a ₹24.7 lakh settlement regarding allegations of misstatements in financial records.",
+      "Encube Ethicals Limited filed its Draft Red Herring Prospectus (DRHP) and abridged prospectus with SEBI.",
+      "SEBI continues to process various appeals and recovery proceedings, including notices issued in relation to past illiquid stock options cases."
+    ],
+    "week_ahead": [
+      { "date": "August 6 - 8", "event": "RBI Monetary Policy Committee (MPC) Rate Decision & Policy Stance" },
+      { "date": "August 12", "event": "India Industrial Production (IIP) & Consumer Inflation (CPI) Release" },
+      { "date": "August 14", "event": "WPI Inflation Data & India Balance of Trade Release" }
+    ],
+    "earnings_calendar": [
+      { "date": "August 6", "event": "Q1 Earnings: Life Insurance Corporation of India (LIC), Hero MotoCorp, Britannia Industries" },
+      { "date": "August 7", "event": "Q1 Earnings: SBI, Tata Motors, Trent, Apollo Hospitals" },
+      { "date": "August 8", "event": "Q1 Earnings: Hindalco Industries, Grasim, Fortis Healthcare" }
+    ]
+  }
 }
