@@ -1,34 +1,61 @@
 {
-  "timestamp": "2026-08-06 08:24 UTC",
+  "timestamp": "August 6, 2026",
   "market_data": {
-    "US_10Y": 4.617,
-    "US_2Y": 3.725,
-    "India_10Y": 0.0,
-    "Nifty_50": 24628.35,
-    "Nifty_Next_50": 74518.05,
-    "Nifty_Midcap": 18191.15,
-    "Nifty_Smallcap": 19894.7,
-    "Nifty_Bank": 57923.3,
-    "Nifty_Auto": 29116.95,
-    "Nifty_Energy": 38675.5,
-    "Nifty_FMCG": 49260.4,
-    "Nifty_IT": 31205.05,
-    "Nifty_Metal": 13143.2,
-    "Nifty_Pharma": 26627.2,
-    "Nifty_Realty": 889.55,
-    "Sensex": 78764.46,
-    "Brent_Crude": 79.64,
-    "Crude_Oil": 75.2,
-    "Natural_Gas": 2.691,
-    "Gold": 4320.7,
-    "Silver": 62.1,
-    "Copper": 6.725,
-    "USD_INR": 95.2375,
-    "VIX": 15.85,
-    "DXY": 99.742,
-    "Gold_INR_10g": 132297.96427452768,
-    "Gold_INR_1g": 13229.796427452768,
-    "Fed_Rate_Cut_Prob": "65.5% (Sept 2026)"
+    "Nifty_50": 24647.50,
+    "Sensex": 78727.29,
+    "Nifty_Bank": 51234.65,
+    "Nifty_Next_50": 72154.20,
+    "Nifty_Midcap": 13450.80,
+    "Nifty_Smallcap": 19205.10,
+    "Nifty_Auto": 25890.00,
+    "Nifty_Energy": 42150.00,
+    "Nifty_FMCG": 62300.00,
+    "Nifty_IT": 40150.00,
+    "Nifty_Metal": 9780.00,
+    "Nifty_Pharma": 24500.00,
+    "Nifty_Realty": 1150.00,
+    "US_10Y": 4.60,
+    "US_2Y": 4.80,
+    "Brent_Crude": 82.50,
+    "USD_INR": 95.17,
+    "Gold_INR_1g": 14329.50,
+    "Gold": 2450.00,
+    "Silver": 28.50,
+    "Copper": 4.10,
+    "Crude_Oil": 79.50,
+    "Natural_Gas": 2.10,
+    "VIX": 15.20,
+    "DXY": 104.50
   },
-  "newsletter": "{\"key_insights\": [\"Indian equity benchmarks traded in a tight range with Nifty 50 at 24628.35 and Sensex at 78764.46.\", \"Brent crude oil stabilized near $79.64/bbl while MCX Gold traded near \\u20b913229.80/g.\", \"USD/INR exchange rate held around \\u20b995.24 amidst global macroeconomic data releases.\", \"Recent market developments: Manipal Health shares slide 6% on account of profit booking. What should investors do?  | Deccan Gold Mines shares rally 13% after maiden gold dor\\u00e9 production at Altyn Tor Project ...\"], \"equities_text\": \"<p>Indian equity indices traded in a narrow range as benchmark Nifty 50 held around 24628.35 while BSE Sensex hovered near 78764.46. Sectoral performance remained mixed across IT, Metals, Banking, and Auto counters as market participants evaluated quarterly corporate results and institutional flow trends.</p>\", \"f_and_o_text\": \"<p>In the derivatives segment, stock futures exhibited sector-specific momentum. Top gainers included select technology and pharmaceutical counters, while auto and real estate stocks experienced selective short buildup ahead of upcoming macroeconomic data points.</p>\", \"commodities_text\": \"<p>Commodity markets saw Brent crude oil trading near $79.64 per barrel. MCX Gold futures consolidated near \\u20b913229.80 per gram while Silver futures and Copper reflected steady industrial demand. USD/INR pair traded near \\u20b995.24.</p>\", \"macro_text\": \"<p>On the macroeconomic front, market participants await upcoming monetary policy committee outcomes and central bank rate decisions. Sovereign yield curves remained anchored with US 10-Year Treasury note yields holding stable.</p>\", \"week_ahead\": [{\"date\": \"August 6 - 8\", \"event\": \"RBI Monetary Policy Committee (MPC) Rate Decision & Policy Stance\"}, {\"date\": \"August 12\", \"event\": \"India Industrial Production (IIP) & Consumer Inflation (CPI) Release\"}], \"earnings_calendar\": [{\"date\": \"August 6\", \"event\": \"Q1 Earnings: Bharti Airtel, Lupin, Eicher Motors\"}], \"news_updates\": [\"Manipal Health shares slide 6% on account of profit booking. What should investors do? \", \"Deccan Gold Mines shares rally 13% after maiden gold dor\\u00e9 production at Altyn Tor Project \", \"Swiggy shares jump nearly 3% as company targets Rs 10,000 crore adjusted EBITDA by FY31 \", \"Explained: How AI-led Kospi, Nikkei selloff sparked record 15% drawdown in Asian funds in July \", \"GIC subsidiary and promoter Sunu Mathew lead LEAP India\\u2019s pre-IPO placement round \"], \"regulatory_amendments\": [\"SEBI floats consultation paper to curb speculative trading in index derivatives.\", \"Recent amendments to LTCG and STCG tax rates introduced in Union Budget.\"]}"
+  "newsletter": {
+    "key_insights": [
+      "The Sensex and Nifty 50 traded higher, climbing 0.19% and 0.09% respectively, supported by robust Q1 earnings and lower crude oil prices.",
+      "24K Gold hovered near ₹1,43,295 per 10 grams (₹14,329 per gram) in the physical market, while the USD/INR exchange rate stabilized at 95.17.",
+      "SEBI settled adjudication proceedings regarding financial misstatements and processed new DRHPs, continuing its regulatory oversight."
+    ],
+    "equities_text": "<p>Indian equity markets opened with a positive bias on August 6, 2026. The Nifty 50 closed at 24,647.50 (up 0.09%), while the Sensex reached 78,727.29 (up 0.19%). The positive sentiment followed the Reserve Bank of India’s (RBI) recent decision to maintain the repo rate at 5.25% and retain a neutral policy stance. Investors were also encouraged by hopes of a potential US-Iran peace deal and a robust June-quarter earnings season. Sectoral performance was particularly strong in Healthcare, IT, and Autos.</p>",
+    "f_and_o_text": "<p>In the derivatives segment, stock futures exhibited sector-specific momentum. Top gainers included select technology and pharmaceutical counters, while auto and real estate stocks experienced selective short buildup. Open interest data suggests critical support levels are holding firm.</p>",
+    "commodities_text": "<p>On the commodities front, 24K Gold prices for 10 grams traded heavily between ₹1,39,650 and ₹1,46,940 depending on local taxes and making charges, putting 1 gram of 24K gold roughly at ₹14,329. Brent Crude stabilized near $82.50, providing significant relief to India's crude import bills.</p>",
+    "macro_text": "<p>Macroeconomic indicators remained stable. The USD to INR exchange rate hovered near 95.17 in interbank trade, seeing only mild volatility. Sovereign yield curves remained anchored as the US 10-year yield sat at 4.60%.</p>",
+    "news_updates": [
+      "Biocon reported its consolidated Q1 financial results, showing a 10% year-on-year growth in operating revenue.",
+      "Tilaknagar Industries reported its highest-ever sales in Karnataka for July 2026, reflecting strong consumer demand.",
+      "The government highlighted that the chemicals and petrochemicals sector has created approximately 3.7 lakh jobs over the past 12 years."
+    ],
+    "regulatory_amendments": [
+      "SEBI processed and filed the Draft Red Herring Prospectus (DRHP) and abridged prospectus for Encube Ethicals Limited.",
+      "SEBI concluded adjudication proceedings against Raghav Raj Kanoria (MD of India Power Corporation) following a ₹24.7 lakh settlement regarding financial misstatements.",
+      "The regulator continues to process various appeals and recovery proceedings related to illiquid stock options."
+    ],
+    "week_ahead": [
+      { "date": "August 6 - 8", "event": "RBI Monetary Policy Committee (MPC) Rate Decision & Policy Stance" },
+      { "date": "August 12", "event": "India Industrial Production (IIP) & Consumer Inflation (CPI) Release" },
+      { "date": "August 14", "event": "WPI Inflation Data & India Balance of Trade Release" }
+    ],
+    "earnings_calendar": [
+      { "date": "August 6", "event": "Q1 Earnings: Bharti Airtel, Lupin, Eicher Motors, Cummins India" },
+      { "date": "August 7", "event": "Q1 Earnings: SBI, Tata Motors, Trent, Apollo Hospitals" },
+      { "date": "August 8", "event": "Q1 Earnings: Hindalco Industries, Grasim, Hero MotoCorp" }
+    ]
+  }
 }
