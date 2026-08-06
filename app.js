@@ -9,16 +9,21 @@ async function loadData() {
         document.getElementById('timestamp-sticky').textContent = timestamp;
         document.getElementById('timestamp-byline').textContent = timestamp;
         
+        // Formatter with Indian commas (e.g. 24,661.20)
+        const formatVal = (val, prefix='', suffix='') => {
+            if (typeof val === 'number' && val > 0) {
+                return `${prefix}${val.toLocaleString('en-IN', {minimumFractionDigits: 2, maximumFractionDigits: 2})}${suffix}`;
+            }
+            return typeof val === 'string' ? val : '--';
+        };
+
         // Hero Headline
         const md = data.market_data || {};
         if (md.Nifty_50) {
             document.getElementById('hero-headline').textContent = 
-                `Nifty 50 at ${md.Nifty_50.toFixed(2)} | Sensex at ${md.Sensex ? md.Sensex.toFixed(2) : '--'} | Brent Crude $${md.Brent_Crude ? md.Brent_Crude.toFixed(2) : '--'} | US 10Y ${md.US_10Y ? md.US_10Y.toFixed(2) + '%' : '--'}`;
+                `Nifty 50 at ${formatVal(md.Nifty_50)} | Sensex at ${formatVal(md.Sensex)} | Brent Crude ${formatVal(md.Brent_Crude, '$')} | US 10Y ${formatVal(md.US_10Y, '', '%')}`;
         }
 
-        // Expanded Market Statcards (Grid of 6 key indicators)
-        const formatVal = (val, prefix='', suffix='') => (typeof val === 'number' && val > 0) ? `${prefix}${val.toFixed(2)}${suffix}` : (typeof val === 'string' ? val : '--');
-        
         const statcardsHtml = `
             <div class="mck-statcard">
                 <div class="mck-statcard__stat">${formatVal(md.Nifty_50)}</div>
@@ -141,6 +146,15 @@ async function loadData() {
         document.getElementById('f-and-o-narrative').innerHTML = newsData.f_and_o_text || "";
         document.getElementById('commodities-narrative').innerHTML = newsData.commodities_text || "";
         document.getElementById('macro-narrative').innerHTML = newsData.macro_text || "";
+
+        // News & Regulatory Lists
+        const makeList = (arr) => arr && arr.length > 0 ? `<ul>${arr.map(i => `<li>${i}</li>`).join('')}</ul>` : "<p>No updates available.</p>";
+        
+        const newsContainer = document.getElementById('quick-updates-content');
+        if(newsContainer) newsContainer.innerHTML = makeList(newsData.news_updates);
+        
+        const regContainer = document.getElementById('regulatory-content');
+        if(regContainer) regContainer.innerHTML = makeList(newsData.regulatory_amendments);
 
         // Key Insights
         if (newsData.key_insights && newsData.key_insights.length > 0) {

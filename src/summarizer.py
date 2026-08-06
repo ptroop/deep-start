@@ -56,16 +56,20 @@ def _generate_fallback_digest(news_items, market_data):
     
     week_ahead = [
         {"date": "August 6 - 8", "event": "RBI Monetary Policy Committee (MPC) Rate Decision & Policy Stance"},
-        {"date": "August 12", "event": "India Industrial Production (IIP) & Consumer Inflation (CPI) Release"},
-        {"date": "August 14", "event": "WPI Inflation Data & India Balance of Trade Release"},
-        {"date": "August 15", "event": "Global Macroeconomic Data & US Retail Sales Summary"}
+        {"date": "August 12", "event": "India Industrial Production (IIP) & Consumer Inflation (CPI) Release"}
     ]
     
     earnings_calendar = [
-        {"date": "August 6", "event": "Q1 Earnings: Bharti Airtel, Lupin, Eicher Motors, Cummins India"},
-        {"date": "August 7", "event": "Q1 Earnings: SBI, Tata Motors, Trent, Apollo Hospitals"},
-        {"date": "August 8", "event": "Q1 Earnings: Hindalco Industries, Grasim, Hero MotoCorp"},
-        {"date": "August 11", "event": "Q1 Earnings: Oil & Natural Gas Corp (ONGC), Muthoot Finance"}
+        {"date": "August 6", "event": "Q1 Earnings: Bharti Airtel, Lupin, Eicher Motors"}
+    ]
+
+    news_updates = [
+        item.get("title", "") for item in (news_items or [])[:5] if item.get("title")
+    ]
+    
+    regulatory = [
+        "SEBI floats consultation paper to curb speculative trading in index derivatives.",
+        "Recent amendments to LTCG and STCG tax rates introduced in Union Budget."
     ]
     
     return {
@@ -75,7 +79,9 @@ def _generate_fallback_digest(news_items, market_data):
         "commodities_text": commodities_text,
         "macro_text": macro_text,
         "week_ahead": week_ahead,
-        "earnings_calendar": earnings_calendar
+        "earnings_calendar": earnings_calendar,
+        "news_updates": news_updates,
+        "regulatory_amendments": regulatory
     }
 
 def get_summaries(news_items, market_data=None):
@@ -86,39 +92,38 @@ def get_summaries(news_items, market_data=None):
         return json.dumps(_generate_fallback_digest(news_items, market_data))
         
     prompt = f"""
-You are a highly analytical Senior Financial Editor at a top-tier news desk (e.g. WSJ, Bloomberg). Your task is to process raw market data and news headlines into a dense, high-signal daily digest.
+You are a highly analytical Senior Financial Editor at a top-tier news desk. Process raw market data and news headlines into a dense, high-signal daily digest.
 
 # INPUT DATA:
 Market Data: {json.dumps(market_data or {})}
-News Items: {json.dumps(news_items or [])[:3000]}
+News Items: {json.dumps(news_items or [])[:3500]}
 
 # INSTRUCTIONS:
 1. Output strictly valid JSON. No text outside JSON.
-2. SYNTHESIS RULE: Group related news items thematically and synthesize them into single compound sentences.
-3. EDITORIAL TONE & STYLE: ZERO adjectives (do not use words like 'significant', 'major', 'surging'). Use objective, declarative sentences with specific entities and metrics.
-4. CALENDARS ARE MANDATORY: Extract or construct at least 3-4 entries for `week_ahead` and `earnings_calendar`. DO NOT leave these arrays empty under any circumstances.
+2. SYNTHESIS RULE: Group related news items thematically.
+3. EDITORIAL TONE & STYLE: ZERO adjectives. Objective, declarative sentences with specific entities and metrics.
+4. CALENDARS ARE MANDATORY: Extract or construct at least 2 entries for `week_ahead` and `earnings_calendar`. DO NOT leave empty.
+5. NEWS & REGULATORY: Extract 5 top headline summaries into `news_updates`. Extract any SEBI, RBI, or government tax/regulatory policy changes into `regulatory_amendments` (minimum 1, even if general context).
 
 # JSON SCHEMA:
 {{
   "key_insights": ["Array of 4-5 synthesized bullet points"],
-  "equities_text": "<p>Narrative paragraph about equities and sectoral performance...</p>",
+  "equities_text": "<p>Narrative paragraph about equities...</p>",
   "f_and_o_text": "<p>Narrative paragraph about top gainers/losers or F&O movers...</p>",
   "commodities_text": "<p>Narrative paragraph about commodities...</p>",
-  "macro_text": "<p>Narrative paragraph about macro economics, regulatory news, or policy...</p>",
-  "week_ahead": [
-    {{"date": "Date Range", "event": "Event description"}}
-  ],
-  "earnings_calendar": [
-    {{"date": "Date", "event": "Earnings announcement description"}}
-  ]
+  "macro_text": "<p>Narrative paragraph about macro economics...</p>",
+  "week_ahead": [ {{"date": "Date Range", "event": "Event description"}} ],
+  "earnings_calendar": [ {{"date": "Date", "event": "Earnings description"}} ],
+  "news_updates": ["Headline 1", "Headline 2", "Headline 3"],
+  "regulatory_amendments": ["SEBI change...", "Tax amendment..."]
 }}
 """
 
     models_to_try = [
-        "google/gemini-2.0-flash-lite-preview-02-05:free",
-        "meta-llama/llama-3.1-8b-instruct:free",
-        "qwen/qwen-2.5-coder-32b-instruct:free",
-        "openrouter/free"
+        "google/gemini-pro-1.5",
+        "google/gemini-flash-1.5",
+        "anthropic/claude-3.5-sonnet",
+        "openrouter/auto"
     ]
     
     for model in models_to_try:
@@ -150,14 +155,11 @@ News Items: {json.dumps(news_items or [])[:3000]}
                     json_str = match.group(0)
                     parsed = json.loads(json_str)
                     
-                    # Ensure calendars are non-empty
+                    # Ensure defaults
                     fallback = _generate_fallback_digest(news_items, market_data)
-                    if not parsed.get("week_ahead"):
-                        parsed["week_ahead"] = fallback["week_ahead"]
-                    if not parsed.get("earnings_calendar"):
-                        parsed["earnings_calendar"] = fallback["earnings_calendar"]
-                    if not parsed.get("key_insights"):
-                        parsed["key_insights"] = fallback["key_insights"]
+                    for key in ["week_ahead", "earnings_calendar", "key_insights", "news_updates", "regulatory_amendments"]:
+                        if not parsed.get(key):
+                            parsed[key] = fallback.get(key, [])
                         
                     return json.dumps(parsed)
             else:
