@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deep Start | Daily Digest</title>
+    <title>DayStarter | Daily Digest</title>
+    <meta name="description" content="DayStarter daily financial news and market analysis.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,162 +13,159 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Sticky Bar -->
-    <div class="mck-stickybar is-expanded" id="stickybar">
-        <div class="mck-stickybar__row">
-            <div class="mck-stickybar__title" id="sticky-title">Deep Start Daily Digest</div>
-            <div class="mck-actions mck-actions--compact">
-                <div class="mck-actions__row">
-                    <span id="timestamp-sticky" style="font-family: var(--font-sans); font-size: 13px; color: var(--mck-muted);">Loading...</span>
-                </div>
-            </div>
-        </div>
+
+<!-- Sticky Header -->
+<div class="mck-stickybar" id="stickybar">
+  <div class="mck-stickybar__row">
+    <div class="mck-stickybar__title" id="sticky-title">DayStarter: Loading...</div>
+    <div class="mck-actions mck-actions--compact">
+      <div class="mck-actions__row">
+        <button type="button" class="mck-actions__btn" id="open-summary-sticky" title="Key insights">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+        </button>
+      </div>
     </div>
+  </div>
+  <div class="mck-stickybar__progress"><span id="read-progress"></span></div>
+</div>
 
-    <!-- Key Insights Drawer -->
-    <div class="mck-drawer-overlay" id="insights-overlay" aria-hidden="true"></div>
-    <div class="mck-drawer" id="insights-drawer" aria-hidden="true">
-        <div class="mck-drawer__header">
-            <h2 class="mck-drawer__title">Key Insights</h2>
-            <button class="mck-drawer__close" id="close-insights" aria-label="Close">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-            </button>
-        </div>
-        <div class="mck-drawer__body" id="insights-content">
-            <!-- Populated by JS -->
-        </div>
+<main>
+
+<!-- Hero Section -->
+<div class="mck-hero">
+  <img class="mck-hero__image" src="hero.jpg" alt="Hero background" />
+  <div class="mck-hero__scrim"></div>
+  <div class="mck-hero__overlay">
+    <div class="mck-hero__inner">
+      <div class="mck-hero__kicker">DAILY FINANCIAL NEWS DIGEST</div>
+      <h1 class="mck-hero__title">DayStarter</h1>
+      <p class="mck-hero__headline" id="hero-headline">Loading today's headlines...</p>
+      <div class="mck-hero__date" id="hero-date">--</div>
     </div>
+  </div>
+</div>
 
-    <main style="margin-top: 60px;">
-        <!-- Hero Section -->
-        <div class="mck-hero">
-            <div class="mck-hero__scrim" aria-hidden="true"></div>
-            <div class="mck-hero__overlay">
-                <div class="mck-hero__inner">
-                    <h1 class="mck-hero__title">Deep Start</h1>
-                    <p class="mck-hero__headline" id="hero-headline">Fetching latest financial news...</p>
-                    <button class="mck-hero__cta" id="open-insights" style="margin-top: 24px; padding: 12px 24px; background: #051c2c; color: white; border: none; font-family: var(--font-sans); font-weight: 500; cursor: pointer; border-radius: 4px;">Read Key Insights</button>
-                </div>
-            </div>
+<!-- Byline Bar -->
+<div class="mck-byline-rule">
+  <div class="mck-byline-rule__inner">
+    <div class="mck-byline-rule__meta">
+      <div class="mck-byline-rule__by">By <strong>AI Financial Editor</strong></div>
+      <div class="mck-byline-rule__sub" id="byline-date">--</div>
+    </div>
+    <div class="mck-actions">
+      <button type="button" class="mck-actions__btn" id="open-summary-byline" title="Key insights">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Table of Contents FAB -->
+<button type="button" class="mck-index-fab is-visible" id="index-fab" aria-label="Open article index">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><line x1="8" x2="21" y1="6" y2="6"/><line x1="8" x2="21" y1="12" y2="12"/><line x1="8" x2="21" y1="18" y2="18"/><line x1="3" x2="3.01" y1="6" y2="6"/><line x1="3" x2="3.01" y1="12" y2="12"/><line x1="3" x2="3.01" y1="18" y2="18"/></svg>
+</button>
+
+<!-- Table of Contents Overlay Drawer -->
+<div class="mck-index-overlay__backdrop" id="index-backdrop"></div>
+<aside class="mck-index-overlay" id="index-overlay" role="dialog">
+  <div class="mck-index-overlay__head">
+    <span>In this article</span>
+    <button type="button" id="index-close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <div class="mck-index-overlay__body">
+    <nav class="mck-index">
+      <ul class="mck-index__list" id="index-list"></ul>
+    </nav>
+  </div>
+</aside>
+
+<!-- Key Insights Drawer -->
+<div class="mck-index-overlay__backdrop" id="summary-backdrop"></div>
+<aside class="mck-index-overlay" id="summary-overlay" role="dialog">
+  <div class="mck-index-overlay__head">
+    <span>Key insights</span>
+    <button type="button" id="summary-close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+  <div class="mck-index-overlay__body">
+    <ul class="mck-summary" id="summary-list"></ul>
+  </div>
+</aside>
+
+<!-- Article Main Content -->
+<article class="mck-article">
+
+  <!-- Market Snapshot -->
+  <section id="snapshot">
+    <h2>Market snapshot</h2>
+    <p>Equities, sectors, F&amp;O movers, commodities, currency, bonds and institutional flows at the close.</p>
+    <div class="mck-statcards" data-count="3" id="statcards"></div>
+  </section>
+
+  <!-- Hero Bullets Section -->
+  <section id="hero-bullets-section">
+    <h3>Executive Summary</h3>
+    <ul class="mck-summary" id="hero-bullets-list" style="margin-bottom: 32px;"></ul>
+  </section>
+
+  <!-- Dynamic Articles Container -->
+  <div id="dynamic-articles"></div>
+
+  <!-- Detailed Market Data Tables -->
+  <section id="market-tables">
+    <h2>Market Data Tables</h2>
+
+    <figure class="mck-exhibit">
+      <div class="mck-exhibit__head">
+        <div class="mck-exhibit__title">Indian Benchmark Indices</div>
+      </div>
+      <div class="mck-exhibit__body">
+        <div class="mck-table-wrap">
+          <table class="mck-table" id="benchmark-table">
+            <thead><tr><th>Index</th><th>Price</th></tr></thead>
+            <tbody></tbody>
+          </table>
         </div>
+      </div>
+    </figure>
 
-        <!-- Byline -->
-        <div class="mck-byline-rule">
-            <div class="mck-byline-rule__inner">
-                <div class="mck-byline-rule__meta">
-                    <div class="mck-byline-rule__by">By <strong>AI Financial Editor</strong></div>
-                    <div class="mck-byline-rule__sub" id="timestamp-byline">--</div>
-                </div>
-            </div>
+    <figure class="mck-exhibit">
+      <div class="mck-exhibit__head">
+        <div class="mck-exhibit__title">Global Commodities & Rates</div>
+      </div>
+      <div class="mck-exhibit__body">
+        <div class="mck-table-wrap">
+          <table class="mck-table" id="commodities-table">
+            <thead><tr><th>Asset</th><th>Price</th></tr></thead>
+            <tbody></tbody>
+          </table>
         </div>
+      </div>
+    </figure>
+  </section>
 
-        <!-- Main Article Container -->
-        <article class="mck-article">
-            <!-- Market Snapshot Section -->
-            <section id="snapshot">
-                <h2>Market snapshot</h2>
-                <div class="mck-statcards" data-count="3" id="market-statcards">
-                    <!-- Cards injected via JS -->
-                </div>
-                <div class="wsj-chart-container" style="margin-top: 32px; border-top: 1px solid var(--mck-rule); padding-top: 16px; max-width: 800px;">
-                    <h4 style="margin-top: 0;">Yield Curve Comparison</h4>
-                    <div style="height: 250px; width: 100%;">
-                        <canvas id="yieldCurveChart"></canvas>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Dynamic Hero Bullets -->
-            <section id="hero-bullets-section">
-                <div id="hero-bullets-content" class="mck-narrative"></div>
-            </section>
+</article>
 
-            <!-- Dynamic Articles Container -->
-            <div id="dynamic-articles"></div>
+<!-- Author Box -->
+<div class="mck-authorbox">
+  <details class="mck-authorbox__details" open>
+    <summary class="mck-authorbox__summary">
+      <span class="mck-authorbox__summary-label">About the Editor</span>
+      <span class="mck-authorbox__summary-names">Autonomous Agentic AI Financial Desk</span>
+      <span class="mck-authorbox__chevron"></span>
+    </summary>
+    <div class="mck-authorbox__content">
+      <div class="mck-authorbox__name">DeepStart Automated Desk</div>
+      <div class="mck-authorbox__bio">Curated and updated every morning at 7:00 AM IST directly from live market feeds, exchange filings, and primary regulatory documents.</div>
+    </div>
+  </details>
+</div>
 
-            <!-- Market Data Tables Section -->
-            <section id="market-tables">
-                <h2>Detailed Market Data</h2>
-                
-                <figure class="mck-exhibit">
-                    <div class="mck-exhibit__head">
-                        <div class="mck-exhibit__title">Benchmark Indices</div>
-                    </div>
-                    <div class="mck-exhibit__body">
-                        <div class="mck-table-wrap">
-                            <table class="mck-table" id="benchmark-table">
-                                <thead><tr><th>Index</th><th>Price</th></tr></thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </figure>
-                
-                <figure class="mck-exhibit">
-                    <div class="mck-exhibit__head">
-                        <div class="mck-exhibit__title">Sectoral Indices</div>
-                    </div>
-                    <div class="mck-exhibit__body">
-                        <div class="mck-table-wrap">
-                            <table class="mck-table" id="sectoral-table">
-                                <thead><tr><th>Index</th><th>Price</th></tr></thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </figure>
+</main>
 
-                <figure class="mck-exhibit">
-                    <div class="mck-exhibit__head">
-                        <div class="mck-exhibit__title">MCX futures and Forex</div>
-                    </div>
-                    <div class="mck-exhibit__body">
-                        <div class="mck-table-wrap">
-                            <table class="mck-table" id="commodities-table">
-                                <thead><tr><th>Asset</th><th>Price</th></tr></thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </figure>
-            </section>
-            
-            <section id="events">
-                <h2>Upcoming events</h2>
-                
-                <h3>The week ahead</h3>
-                <figure class="mck-exhibit">
-                    <div class="mck-exhibit__head">
-                        <div class="mck-exhibit__title">Key events for the week ahead</div>
-                    </div>
-                    <div class="mck-exhibit__body">
-                        <div class="mck-table-wrap">
-                            <table class="mck-table" id="week-ahead-table">
-                                <thead><tr><th>Date</th><th>Event</th></tr></thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </figure>
-
-                <h3>Earnings calendar</h3>
-                <figure class="mck-exhibit">
-                    <div class="mck-exhibit__head">
-                        <div class="mck-exhibit__title">Companies scheduled to report results</div>
-                    </div>
-                    <div class="mck-exhibit__body">
-                        <div class="mck-table-wrap">
-                            <table class="mck-table" id="earnings-table">
-                                <thead><tr><th>Date</th><th>Event</th></tr></thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </figure>
-            </section>
-
-        </article>
-    </main>
-    <script src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
