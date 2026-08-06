@@ -33,21 +33,101 @@
       "Foreign institutional investors were net sellers of ₹943.42 crore on 5 August, while domestic institutional investors bought a net ₹2,883.17 crore.",
       "Trent Ltd reported a 26% YoY increase in standalone Q1 net profit to ₹532 crore, while Power Grid Corp posted a standalone net profit of ₹3,410.95 crore."
     ],
-    "equities_text": "<p>DayStarter, Vol. I, No. 59. Indian equities closed slightly higher on Thursday. The Nifty 50 closed at 24,647.50, up 0.09%, while the Sensex rose 0.19% to 78,727.29. The markets experienced a positive session throughout the day, supported by factors such as lower crude oil prices and optimism surrounding potential peace talks between the US and Iran.</p><p>Foreign portfolio investors (FPIs) were net sellers of ₹943.42 crore on 5 August, while domestic institutional investors (DIIs) bought a net ₹2,883.17 crore, continuing their strong support of the domestic market.</p>",
-    "f_and_o_text": "<p>In the derivatives segment, over 160 companies released their Q1 earnings today. Firstsource Solutions reported a 19% QoQ drop in net profit to ₹166 crore on revenue of ₹2,725 crore, leading to selective short buildups. Meanwhile, Garware Hi-Tech Films saw long accumulations after reporting a 62.2% YoY rise in net profit to ₹133 crore.</p>",
-    "commodities_text": "<p>Gold prices remained elevated in the domestic physical market, with 24K gold for 10 grams trading between ₹1,39,650 and ₹1,46,940 depending on local taxes and making charges. Brent crude stabilized near $82.50 per barrel, providing a slight tailwind for Indian macros.</p>",
-    "macro_text": "<p>The RBI continues to maintain its neutral policy stance with the repo rate at 5.25%. The USD/INR exchange rate hovered around ₹95.17 in early interbank trade with low volatility. Global equity markets sent mixed signals; Wall Street's Dow Jones hit a record high, while tech-heavy indices like the Nasdaq faced selling pressure.</p>",
-    "news_updates": [
-      "Trent Ltd's Q1 standalone net profit rose 26% YoY to ₹532 crore, with consolidated net profit standing at ₹518 crore.",
-      "Power Grid Corp reported a massive Q1 standalone net profit of ₹3,410.95 crore (consolidated ₹3,598.42 crore).",
-      "Blue Star's Q1 net profit slipped 15% YoY to ₹102.5 crore, even as revenue rose 13%.",
-      "Suven Life Sciences' net loss widened to ₹128 crore from ₹46 crore in the previous quarter.",
-      "Foreign Portfolio Investors turned net buyers in July 2026, investing approximately ₹20,200 crore into Indian equities after four consecutive months of selling."
+    "hero_bullets": [
+      {
+        "headline": "Indian equities closed slightly higher, while FIIs were net sellers and DIIs net buyers",
+        "context": "The Nifty 50 closed at 24,647.50, up 0.09%, and the Sensex rose 0.19% to 78,727.29. Foreign portfolio investors (FPIs) were net sellers of ₹943.42 crore on 5 August, while domestic institutional investors (DIIs) bought a net ₹2,883.17 crore."
+      },
+      {
+        "headline": "The RBI maintains its neutral stance with the repo rate at 5.25%",
+        "context": "The Monetary Policy Committee concluded its August meetings, retaining the repo rate at 5.25% amid ongoing evaluations of food inflation and global macroeconomic conditions."
+      },
+      {
+        "headline": "Major corporate updates included Trent Ltd's profit growth, and strong numbers from Power Grid",
+        "context": "Trent Ltd's Q1 FY27 standalone net profit rose 26% to ₹532 crore, while Power Grid Corp reported a massive Q1 standalone net profit of ₹3,410.95 crore."
+      },
+      {
+        "headline": "SEBI concludes adjudication against India Power Corporation MD",
+        "context": "SEBI settled proceedings against Raghav Raj Kanoria for ₹24.7 lakh regarding allegations of misstatements in financial records."
+      },
+      {
+        "headline": "Global markets sent mixed signals, while Brent crude stabilized at $82.50",
+        "context": "Wall Street's Dow Jones hit a record high, while tech-heavy indices like the Nasdaq faced selling pressure. Brent crude stabilized near $82.50 per barrel."
+      }
     ],
-    "regulatory_amendments": [
-      "SEBI has concluded adjudication proceedings against Raghav Raj Kanoria, MD of India Power Corporation Limited, following a ₹24.7 lakh settlement regarding allegations of misstatements in financial records.",
-      "Encube Ethicals Limited filed its Draft Red Herring Prospectus (DRHP) and abridged prospectus with SEBI.",
-      "SEBI continues to process various appeals and recovery proceedings, including notices issued in relation to past illiquid stock options cases."
+    "articles": [
+      {
+        "category": "Equities and sectors",
+        "paragraphs": [
+          "DayStarter, Vol. I, No. 59. Indian equities closed slightly higher on Thursday. The Nifty 50 closed at 24,647.50, up 0.09% from its previous close, while the Sensex rose 0.19% to 78,727.29.",
+          "The markets experienced a positive session throughout the day, supported by factors such as lower crude oil prices and optimism surrounding potential peace talks between the US and Iran. Sectoral performance remained mixed across IT, Metals, Banking, and Auto counters as market participants evaluated quarterly corporate results."
+        ]
+      },
+      {
+        "category": "Institutional flows",
+        "paragraphs": [
+          "Foreign portfolio investors (FPIs) were net sellers of ₹943.42 crore in the cash market on 5 August. Their total buy value stood at ₹15,940.50 crore against a sell value of ₹16,883.92 crore.",
+          "Domestic institutional investors (DIIs) provided strong support, buying a net ₹2,883.17 crore, with a total buy value of ₹19,353.43 crore against a sell value of ₹16,470.26 crore.",
+          "Following four consecutive months of selling (March through June 2026), FPIs turned net buyers in July 2026, investing approximately ₹20,200 crore into Indian equities. This shift was attributed to stabilizing domestic fundamentals, fair valuations, and improved global risk appetite."
+        ]
+      },
+      {
+        "category": "Monetary policy and inflation",
+        "paragraphs": [
+          "The RBI continues to maintain its neutral policy stance with the repo rate at 5.25%. The Monetary Policy Committee's decision aligns with consensus expectations from major economists.",
+          "The USD/INR exchange rate hovered around ₹95.17 in early interbank trade with low volatility. Core inflation, which excludes volatile items such as food and fuel, remains slightly below expectations, giving the RBI room to maneuver."
+        ]
+      },
+      {
+        "category": "Trent Ltd",
+        "paragraphs": [
+          "Trent Ltd reported a 26% year-on-year increase in standalone Q1 FY27 net profit, reaching ₹532 crore.",
+          "On a consolidated basis, the company's net profit stood at ₹518 crore. The strong performance was driven by robust consumer demand across its retail formats."
+        ]
+      },
+      {
+        "category": "Power Grid Corp",
+        "paragraphs": [
+          "Power Grid Corp reported a massive Q1 standalone net profit of ₹3,410.95 crore.",
+          "Consolidated net profit for the quarter was reported at ₹3,598.42 crore, as the company continues to benefit from steady transmission capacity additions."
+        ]
+      },
+      {
+        "category": "Garware Hi-Tech Films",
+        "paragraphs": [
+          "Garware Hi-Tech Films saw long accumulations after reporting a 62.2% year-on-year rise in net profit to ₹133 crore.",
+          "The exceptional growth in the bottom line reflects strong margin execution and solid volume growth in its core segments."
+        ]
+      },
+      {
+        "category": "Firstsource Solutions",
+        "paragraphs": [
+          "Firstsource Solutions reported a 19% quarter-on-quarter drop in consolidated net profit to ₹166 crore.",
+          "Revenue for the quarter stood at ₹2,725 crore. The sequential drop in profits led to selective short buildups in the derivatives segment."
+        ]
+      },
+      {
+        "category": "Blue Star and Suven Life Sciences",
+        "paragraphs": [
+          "Blue Star's Q1 net profit slipped 15% year-on-year to ₹102.5 crore, even as overall revenue rose 13% during the quarter.",
+          "Meanwhile, Suven Life Sciences reported a widening net loss of ₹128 crore, compared to a loss of ₹46 crore in the previous quarter."
+        ]
+      },
+      {
+        "category": "Regulatory amendments and SEBI changes",
+        "paragraphs": [
+          "SEBI has concluded adjudication proceedings against Raghav Raj Kanoria, MD of India Power Corporation Limited, following a ₹24.7 lakh settlement regarding allegations of misstatements in financial records.",
+          "In primary market news, Encube Ethicals Limited has filed its Draft Red Herring Prospectus (DRHP) and abridged prospectus with SEBI for its upcoming IPO.",
+          "SEBI also continues to process various appeals and recovery proceedings, including notices issued in relation to past illiquid stock options cases."
+        ]
+      },
+      {
+        "category": "Commodities and physical gold",
+        "paragraphs": [
+          "Gold prices remained elevated in the domestic physical market, with 24K gold for 10 grams trading between ₹1,39,650 and ₹1,46,940 depending on local taxes and making charges.",
+          "Brent crude stabilized near $82.50 per barrel, providing a slight tailwind for Indian macros and easing concerns over the crude oil import bill."
+        ]
+      }
     ],
     "week_ahead": [
       { "date": "August 6 - 8", "event": "RBI Monetary Policy Committee (MPC) Rate Decision & Policy Stance" },

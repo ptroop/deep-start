@@ -141,20 +141,48 @@ async function loadData() {
             };
         }
 
-        // Narratives
-        document.getElementById('equities-narrative').innerHTML = newsData.equities_text || "";
-        document.getElementById('f-and-o-narrative').innerHTML = newsData.f_and_o_text || "";
-        document.getElementById('commodities-narrative').innerHTML = newsData.commodities_text || "";
-        document.getElementById('macro-narrative').innerHTML = newsData.macro_text || "";
+        // Render Hero Bullets
+        const heroBulletsSection = document.getElementById('hero-bullets-content');
+        if (heroBulletsSection && newsData.hero_bullets && newsData.hero_bullets.length > 0) {
+            const ul = document.createElement('ul');
+            ul.style.listStyleType = 'none';
+            ul.style.paddingLeft = '0';
+            newsData.hero_bullets.forEach(bullet => {
+                const li = document.createElement('li');
+                li.style.marginBottom = '16px';
+                li.innerHTML = `
+                    <div style="font-weight: 600; margin-bottom: 4px;">- ${bullet.headline}</div>
+                    <div style="padding-left: 12px; color: var(--mck-body); font-size: 15px;">${bullet.context}</div>
+                `;
+                ul.appendChild(li);
+            });
+            heroBulletsSection.appendChild(ul);
+        }
 
-        // News & Regulatory Lists
-        const makeList = (arr) => arr && arr.length > 0 ? `<ul>${arr.map(i => `<li>${i}</li>`).join('')}</ul>` : "<p>No updates available.</p>";
-        
-        const newsContainer = document.getElementById('quick-updates-content');
-        if(newsContainer) newsContainer.innerHTML = makeList(newsData.news_updates);
-        
-        const regContainer = document.getElementById('regulatory-content');
-        if(regContainer) regContainer.innerHTML = makeList(newsData.regulatory_amendments);
+        // Render Dynamic Articles
+        const dynamicContainer = document.getElementById('dynamic-articles');
+        if (dynamicContainer && newsData.articles && newsData.articles.length > 0) {
+            newsData.articles.forEach(article => {
+                const section = document.createElement('section');
+                section.style.marginTop = '40px';
+                
+                const h2 = document.createElement('h2');
+                h2.textContent = article.category;
+                section.appendChild(h2);
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'mck-narrative';
+                
+                article.paragraphs.forEach(para => {
+                    const p = document.createElement('p');
+                    p.innerHTML = para;
+                    contentDiv.appendChild(p);
+                });
+                
+                section.appendChild(contentDiv);
+                dynamicContainer.appendChild(section);
+            });
+        }
 
         // Key Insights
         if (newsData.key_insights && newsData.key_insights.length > 0) {
